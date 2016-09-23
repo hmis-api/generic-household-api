@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://jsonschema.net",
+  "type": "array",
+  "items": [
+    {
+      "id": "http://jsonschema.net/0",
+      "type": "object",
+      "properties": {
+        "houseHoldMembershipId": {
+          "id": "http://jsonschema.net/0/houseHoldMembershipId",
+          "type": "null"
+        },
+        "globalClientId": {
+          "id": "http://jsonschema.net/0/globalClientId",
+          "type": "string"
+        },
+        "relationshipToHeadOfHouseHold": {
+          "id": "http://jsonschema.net/0/relationshipToHeadOfHousehold",
+          "type": "null"
+        },
+        "dateCreate": {
+          "id": "http://jsonschema.net/0/dateCreate",
+          "type": "string"
+        },
+        "dateUpdate": {
+          "id": "http://jsonschema.net/0/dateUpdate",
+          "type": "string"
+        },
+        "userCreate": {
+          "id": "http://jsonschema.net/0/userCreate",
+          "type": "string"
+        },
+        "userUpdate": {
+          "id": "http://jsonschema.net/0/userUpdate",
+          "type": "string"
+        },
+        "globalHouseHoldId": {
+          "id": "http://jsonschema.net/0/globalHouseHoldId",
+          "type": "string"
+        }
+      },
+      "required": [
+        "houseHoldMembershipId",
+        "globalClientId",
+        "relationshipToHeadOfHousehold",
+        "dateCreate",
+        "dateUpdate",
+        "userCreate",
+        "userUpdate",
+        "globalHouseHoldId"
+      ]
+    },
+    {
+      "id": "http://jsonschema.net/1",
+      "type": "object",
+      "properties": {
+        "houseHoldMembershipId": {
+          "id": "http://jsonschema.net/1/houseHoldMembershipId",
+          "type": "null"
+        },
+        "globalClientId": {
+          "id": "http://jsonschema.net/1/globalClientId",
+          "type": "string"
+        },
+        "relationshipToHeadOfHouseHold": {
+          "id": "http://jsonschema.net/1/relationshipToHeadOfHousehold",
+          "type": "null"
+        },
+        "dateCreate": {
+          "id": "http://jsonschema.net/1/dateCreate",
+          "type": "string"
+        },
+        "dateUpdate": {
+          "id": "http://jsonschema.net/1/dateUpdate",
+          "type": "string"
+        },
+        "userCreate": {
+          "id": "http://jsonschema.net/1/userCreate",
+          "type": "string"
+        },
+        "userUpdate": {
+          "id": "http://jsonschema.net/1/userUpdate",
+          "type": "string"
+        },
+        "globalHouseHoldId": {
+          "id": "http://jsonschema.net/1/globalHouseHoldId",
+          "type": "string"
+        }
+      }
+    }
+  ],
+  "required": [
+    "0",
+    "1"
+  ]
+}
