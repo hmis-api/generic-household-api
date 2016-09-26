@@ -1,9 +1,10 @@
 #%RAML 0.8
 title: Global Household
-version: 0.1.0
+version: 0.1.1
 baseUri: http://globalhouseholds.cloudhub.io
 schemas:
 - global_households: !include global_households.json
+- global_households_post: !include global_households_post.json
 - global_households_schema: !include global_households_schema.json
 - global_household: !include global_household.json
 - global_household_schema: !include global_household_schema.json
@@ -48,7 +49,7 @@ schemas:
    body:
     application/json:
       schema: global_households_schema.json
-      example: !include global_households.json
+      example: !include global_households_post.json
    responses:
          200:
           body:
