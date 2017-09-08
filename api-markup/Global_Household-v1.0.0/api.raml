@@ -1,0 +1,321 @@
+#%RAML 0.8
+title: Global Household
+version: 0.1.1
+baseUri: http://globalhouseholds.cloudhub.io
+schemas:
+- global_households: !include global_households.json
+- global_households_post: !include global_households_post.json
+- global_households_schema: !include global_households_schema.json
+- global_household: !include global_household.json
+- global_household_schema: !include global_household_schema.json
+- household_members: !include household_members.json
+- household_members_schema: !include household_members_schema.json
+- household_member: !include household_member.json
+- household_member_schema: !include household_member_schema.json
+    
+  
+/global-households :
+  get:
+   description: gets housing units
+   queryParameters:
+      inactive:
+        description: Filter the list of global household by inactive status.
+        type: boolean
+        required: false
+        example: true
+        
+   responses:
+      200:
+        body:
+          application/json:
+             schema: global_households_schema.json
+             example: !include global_households.json
+      500:
+        body:
+          application/json:
+            example: |
+              {
+                "errorMessage": "internal server error"
+              }          
+      401:
+           body:
+            application/json:
+             example: |
+              {
+                "message":" Unauthorized"
+              }
+  post:
+   description: saves the multiple global household data.
+   body:
+    application/json:
+      schema: global_households_schema.json
+      example: !include global_households_post.json
+   responses:
+         200:
+          body:
+           application/json:
+             example: !include global_households.json
+             
+         500:
+          body:
+            application/json:
+             example: |
+              {"message" : "Resource not found"}
+         401:
+           body:
+            application/json:
+             example: |
+              {
+                "message":" Unauthorized"
+              }
+  put:
+   description: update the multiple global household data.
+   body:
+    application/json:
+      schema: global_households_schema.json
+      example: !include global_households.json
+   responses:
+         200:
+          body:
+           application/json:
+             example: !include global_households.json
+             
+         500:
+          body:
+            application/json:
+             example: |
+              {"message" : "Resource not found"}
+         401:
+           body:
+            application/json:
+             example: |
+              {
+                "message":" Unauthorized"
+              }            
+  
+                         
+  /{global_household_id}:
+   description: global household services for get,deactivate and delete.
+   displayName: retreive
+   get:
+    description: retreives global household  details.
+    responses:
+      200:
+        body:
+          application/json:
+            schema: global_household_schema.json
+            example: !include global_household.json
+              
+      500:
+        body:
+          application/json:
+            example: |
+              {
+                "errorMessage": "internal server error"
+              } 
+      401:
+           body:
+            application/json:
+             example: |
+              {
+                "message":" Unauthorized"
+              }       
+   delete:
+      description: to delete global household on the basis of uuid 
+      responses:
+        200:
+           body:
+            application/json:
+             example: |
+               {
+                 "message":"household successfully deleted"
+               } 
+        500:
+          body:
+           application/json:
+            example: |
+              {
+                "message":" Internal Server Error - retry request"
+              } 
+        401:
+           body:
+            application/json:
+             example: |
+               {
+                "message":" Unauthorized"
+               }
+   put:
+      description: for updating global housing data.
+      body:
+       application/json:
+        schema: global_household_schema.json
+        example: !include global_household.json
+      responses:  
+         200:
+           body:
+            application/json:
+             example: |
+               {
+                 "message":"household successfully updated"
+               } 
+         500:
+          body:
+           application/json:
+            example: |
+              {
+                "message":" Internal Server Error - retry request"
+              } 
+         401:
+           body:
+            application/json:
+             example: |
+               {
+                "message":" Unauthorized"
+               }  
+                       
+   /members:
+    description: 
+    put:
+        
+          body:
+           application/json:
+            schema: household_members_schema.json
+            example: !include household_members.json
+          responses:
+            200:
+             body:
+               application/json:
+                  example: |
+                    { "message": "members updated "}
+            500:
+             body:
+               application/json:
+                  example: |
+                   {"message" : "Resource not found"}
+            401:
+             body:
+               application/json:
+                  example: |
+                   {
+                    "message":" Unauthorized"
+                    }                      
+    post:
+          body:
+           application/json:
+            schema: household_members_schema.json
+            example: !include household_members.json
+          responses:
+            200:
+             body:
+               application/json:
+                  example: |
+                    { "message": "address is updated "}
+            500:
+             body:
+               application/json:
+                  example: |
+                   {"message" : "Resource not found"}
+            401:
+             body:
+               application/json:
+                  example: |
+                   {
+                    "message":" Unauthorized"
+                    }
+    get:
+          
+          responses:
+            200:
+             body:
+               application/json:
+                  schema: household_members_schema.json
+                  example: !include household_members.json
+            500:
+             body:
+               application/json:
+                  example: |
+                   {"message" : "Resource not found"}
+            401:
+             body:
+               application/json:
+                  example: |
+                   {
+                    "message":" Unauthorized"
+                    }
+        
+    /{member_id} :
+      get:
+       description: get the member record based on member_id.
+       responses:
+         200:
+          body:
+           application/json:
+            example: !include household_member.json
+         500:
+          body:
+            application/json:
+             example: |
+              {"message" : "Resource not found"}
+         401:
+           body:
+            application/json:
+             example: |
+              {
+                "message":" Unauthorized"
+              }
+       
+      put:
+       description: update the member record.
+       body:
+        application/json:
+         schema: household_member_schema.json
+         example: !include household_member.json
+       responses:
+         200:
+          body:
+           application/json:
+            example: |
+              { "message": "member successfully updated."}
+         500:
+          body:
+            application/json:
+             example: |
+              {"message" : "Resource not found"}
+         401:
+           body:
+            application/json:
+             example: |
+              {
+                "message":" Unauthorized"
+              }
+              
+      delete:
+       description: delete the household member.
+       
+       responses:
+         200:
+          body:
+            application/json:
+             example: |
+              { "message": "member deleted successfully."}
+         500:
+          body:
+            application/json:
+             example: |
+              {"message" : "Resource not found"}
+         401:
+             body:
+              application/json:
+               example: |
+                {
+                "message":" Unauthorized"
+                } 
+    
+     
+       
+       
+      
+     
+     
+              
+              

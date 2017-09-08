@@ -1,0 +1,550 @@
+#%RAML 1.0
+title: Global Household
+version: 0.1.1
+protocols:
+  - HTTP
+baseUri: 'http://globalhouseholds.cloudhub.io'
+types:
+  global_households:
+    type: string
+  global_households_post:
+    type: string
+  global_households_schema:
+    type: array
+    items:
+      - type: object
+        properties:
+          globalHouseHoldId:
+            type: 'null'
+          headOfHouseholdId:
+            type: string
+          dateCreated:
+            type: string
+          dateUpdated:
+            type: string
+          userCreate:
+            type: string
+          userUpdate:
+            type: string
+      - type: object
+        properties:
+          globalHouseHoldId:
+            type: 'null'
+            required: false
+          headOfHouseholdId:
+            type: string
+            required: false
+          dateCreated:
+            type: string
+            required: false
+          dateUpdated:
+            type: string
+            required: false
+          userCreate:
+            type: string
+            required: false
+          userUpdate:
+            type: string
+            required: false
+  global_household:
+    type: string
+  global_household_schema:
+    type: object
+    properties:
+      globalHouseHoldId:
+        type: 'null'
+      headOfHouseholdId:
+        type: string
+      dateCreated:
+        type: string
+      dateUpdated:
+        type: string
+      userCreate:
+        type: string
+      userUpdate:
+        type: string
+  household_members:
+    type: string
+  household_members_schema:
+    type: array
+    items:
+      - type: object
+        properties:
+          houseHoldMembershipId:
+            type: 'null'
+          globalClientId:
+            type: string
+          relationshipToHeadOfHouseHold:
+            type: 'null'
+            required: false
+          dateCreate:
+            type: string
+          dateUpdate:
+            type: string
+          userCreate:
+            type: string
+          userUpdate:
+            type: string
+          globalHouseHoldId:
+            type: string
+      - type: object
+        properties:
+          houseHoldMembershipId:
+            type: 'null'
+            required: false
+          globalClientId:
+            type: string
+            required: false
+          relationshipToHeadOfHouseHold:
+            type: 'null'
+            required: false
+          dateCreate:
+            type: string
+            required: false
+          dateUpdate:
+            type: string
+            required: false
+          userCreate:
+            type: string
+            required: false
+          userUpdate:
+            type: string
+            required: false
+          globalHouseHoldId:
+            type: string
+            required: false
+  household_member:
+    type: string
+  household_member_schema:
+    type: object
+    properties:
+      houseHoldMembershipId:
+        type: 'null'
+      globalClientId:
+        type: string
+      relationshipToHeadOfHouseHold:
+        type: 'null'
+        required: false
+      dateCreate:
+        type: string
+      dateUpdate:
+        type: string
+      userCreate:
+        type: string
+      userUpdate:
+        type: string
+/global-households:
+  get:
+    description: gets housing units
+    responses:
+      '200':
+        body:
+          application/json:
+            example:
+              - globalHouseHoldId: asdf-asdf-assdfasfd-df
+                headOfHouseholdId: asdf-asdf-assdfasfd-dd
+                dateCreated: 6/06/2016
+                dateUpdated: 6/06/2016
+                userCreate: asdf-adf-asdsf
+                userUpdate: asdf-adfasf-asdfasds
+              - globalHouseHoldId: asdf-asdf-assdfasfd-da
+                headOfHouseholdId: asdf-asdf-assdfasfd-dd-sadf
+                dateCreated: 6/06/2016
+                dateUpdated: 6/06/2016
+                userCreate: asdf-adf-asdsf
+                userUpdate: asdf-adfasf-asdfasds
+            required: false
+      '401':
+        body:
+          application/json:
+            example:
+              message: ' Unauthorized'
+            required: false
+      '500':
+        body:
+          application/json:
+            example:
+              errorMessage: internal server error
+            required: false
+    queryParameters:
+      inactive:
+        required: false
+        description: Filter the list of global household by inactive status.
+        example: true
+        type: boolean
+  post:
+    description: saves the multiple global household data.
+    responses:
+      '200':
+        body:
+          application/json:
+            example:
+              - globalHouseHoldId: asdf-asdf-assdfasfd-df
+                headOfHouseholdId: asdf-asdf-assdfasfd-dd
+                dateCreated: 6/06/2016
+                dateUpdated: 6/06/2016
+                userCreate: asdf-adf-asdsf
+                userUpdate: asdf-adfasf-asdfasds
+              - globalHouseHoldId: asdf-asdf-assdfasfd-da
+                headOfHouseholdId: asdf-asdf-assdfasfd-dd-sadf
+                dateCreated: 6/06/2016
+                dateUpdated: 6/06/2016
+                userCreate: asdf-adf-asdsf
+                userUpdate: asdf-adfasf-asdfasds
+            required: false
+      '401':
+        body:
+          application/json:
+            example:
+              message: ' Unauthorized'
+            required: false
+      '500':
+        body:
+          application/json:
+            example:
+              message: Resource not found
+            required: false
+    body:
+      application/json:
+        example:
+          - globalHouseHoldId: null
+            headOfHouseholdId: asdf-asdf-assdfasfd-dd
+            dateCreated: 6/06/2016
+            dateUpdated: 6/06/2016
+            userCreate: asdf-adf-asdsf
+            userUpdate: asdf-adfasf-asdfasds
+          - globalHouseHoldId: null
+            headOfHouseholdId: asdf-asdf-assdfasfd-dd-sadf
+            dateCreated: 6/06/2016
+            dateUpdated: 6/06/2016
+            userCreate: asdf-adf-asdsf
+            userUpdate: asdf-adfasf-asdfasds
+        required: false
+  put:
+    description: update the multiple global household data.
+    responses:
+      '200':
+        body:
+          application/json:
+            example:
+              - globalHouseHoldId: asdf-asdf-assdfasfd-df
+                headOfHouseholdId: asdf-asdf-assdfasfd-dd
+                dateCreated: 6/06/2016
+                dateUpdated: 6/06/2016
+                userCreate: asdf-adf-asdsf
+                userUpdate: asdf-adfasf-asdfasds
+              - globalHouseHoldId: asdf-asdf-assdfasfd-da
+                headOfHouseholdId: asdf-asdf-assdfasfd-dd-sadf
+                dateCreated: 6/06/2016
+                dateUpdated: 6/06/2016
+                userCreate: asdf-adf-asdsf
+                userUpdate: asdf-adfasf-asdfasds
+            required: false
+      '401':
+        body:
+          application/json:
+            example:
+              message: ' Unauthorized'
+            required: false
+      '500':
+        body:
+          application/json:
+            example:
+              message: Resource not found
+            required: false
+    body:
+      application/json:
+        example:
+          - globalHouseHoldId: asdf-asdf-assdfasfd-df
+            headOfHouseholdId: asdf-asdf-assdfasfd-dd
+            dateCreated: 6/06/2016
+            dateUpdated: 6/06/2016
+            userCreate: asdf-adf-asdsf
+            userUpdate: asdf-adfasf-asdfasds
+          - globalHouseHoldId: asdf-asdf-assdfasfd-da
+            headOfHouseholdId: asdf-asdf-assdfasfd-dd-sadf
+            dateCreated: 6/06/2016
+            dateUpdated: 6/06/2016
+            userCreate: asdf-adf-asdsf
+            userUpdate: asdf-adfasf-asdfasds
+        required: false
+  '/{global_household_id}':
+    displayName: retreive
+    description: 'global household services for get,deactivate and delete.'
+    get:
+      description: retreives global household  details.
+      responses:
+        '200':
+          body:
+            application/json:
+              example:
+                globalHouseHoldId: null
+                headOfHouseholdId: asdf-asdf-assdfasfd-dd
+                dateCreated: 6/06/2016
+                dateUpdated: 6/06/2016
+                userCreate: asdf-adf-asdsf
+                userUpdate: asdf-adfasf-asdfasds
+              required: false
+        '401':
+          body:
+            application/json:
+              example:
+                message: ' Unauthorized'
+              required: false
+        '500':
+          body:
+            application/json:
+              example:
+                errorMessage: internal server error
+              required: false
+    delete:
+      description: to delete global household on the basis of uuid
+      responses:
+        '200':
+          body:
+            application/json:
+              example:
+                message: household successfully deleted
+              required: false
+        '401':
+          body:
+            application/json:
+              example:
+                message: ' Unauthorized'
+              required: false
+        '500':
+          body:
+            application/json:
+              example:
+                message: ' Internal Server Error - retry request'
+              required: false
+    put:
+      description: for updating global housing data.
+      responses:
+        '200':
+          body:
+            application/json:
+              example:
+                message: household successfully updated
+              required: false
+        '401':
+          body:
+            application/json:
+              example:
+                message: ' Unauthorized'
+              required: false
+        '500':
+          body:
+            application/json:
+              example:
+                message: ' Internal Server Error - retry request'
+              required: false
+      body:
+        application/json:
+          example:
+            globalHouseHoldId: null
+            headOfHouseholdId: asdf-asdf-assdfasfd-dd
+            dateCreated: 6/06/2016
+            dateUpdated: 6/06/2016
+            userCreate: asdf-adf-asdsf
+            userUpdate: asdf-adfasf-asdfasds
+          required: false
+    uriParameters:
+      global_household_id: {}
+    /members:
+      description: null
+      put:
+        responses:
+          '200':
+            body:
+              application/json:
+                example:
+                  message: 'members updated '
+                required: false
+          '401':
+            body:
+              application/json:
+                example:
+                  message: ' Unauthorized'
+                required: false
+          '500':
+            body:
+              application/json:
+                example:
+                  message: Resource not found
+                required: false
+        body:
+          application/json:
+            example:
+              - globalClientId: asdf-sad2-daf23
+                relationshipToHeadOfHousehold: null
+                dateCreate: 10/21/2015
+                dateUpdate: 10/21/2015
+                userCreate: asd-adf-dsf7
+                userUpdate: asdf-as6-asdf-aas
+                globalHouseHoldId: sadf-adf-adf
+              - globalClientId: asdf-sad2-daf23
+                relationshipToHeadOfHousehold: null
+                dateCreate: 10/21/2015
+                dateUpdate: 10/21/2015
+                userCreate: asd-adf-dsf7
+                userUpdate: asdf-as6-asdf-aas
+                globalHouseHoldId: sadf-adf-adf
+            required: false
+      post:
+        responses:
+          '200':
+            body:
+              application/json:
+                example:
+                  message: 'address is updated '
+                required: false
+          '401':
+            body:
+              application/json:
+                example:
+                  message: ' Unauthorized'
+                required: false
+          '500':
+            body:
+              application/json:
+                example:
+                  message: Resource not found
+                required: false
+        body:
+          application/json:
+            example:
+              - globalClientId: asdf-sad2-daf23
+                relationshipToHeadOfHousehold: null
+                dateCreate: 10/21/2015
+                dateUpdate: 10/21/2015
+                userCreate: asd-adf-dsf7
+                userUpdate: asdf-as6-asdf-aas
+                globalHouseHoldId: sadf-adf-adf
+              - globalClientId: asdf-sad2-daf23
+                relationshipToHeadOfHousehold: null
+                dateCreate: 10/21/2015
+                dateUpdate: 10/21/2015
+                userCreate: asd-adf-dsf7
+                userUpdate: asdf-as6-asdf-aas
+                globalHouseHoldId: sadf-adf-adf
+            required: false
+      get:
+        responses:
+          '200':
+            body:
+              application/json:
+                example:
+                  - globalClientId: asdf-sad2-daf23
+                    relationshipToHeadOfHousehold: null
+                    dateCreate: 10/21/2015
+                    dateUpdate: 10/21/2015
+                    userCreate: asd-adf-dsf7
+                    userUpdate: asdf-as6-asdf-aas
+                    globalHouseHoldId: sadf-adf-adf
+                  - globalClientId: asdf-sad2-daf23
+                    relationshipToHeadOfHousehold: null
+                    dateCreate: 10/21/2015
+                    dateUpdate: 10/21/2015
+                    userCreate: asd-adf-dsf7
+                    userUpdate: asdf-as6-asdf-aas
+                    globalHouseHoldId: sadf-adf-adf
+                required: false
+          '401':
+            body:
+              application/json:
+                example:
+                  message: ' Unauthorized'
+                required: false
+          '500':
+            body:
+              application/json:
+                example:
+                  message: Resource not found
+                required: false
+      '/{member_id}':
+        get:
+          description: get the member record based on member_id.
+          responses:
+            '200':
+              body:
+                application/json:
+                  example:
+                    houseHoldMembershipId: null
+                    globalClientId: asdf-sad2-daf23
+                    relationshipToHeadOfHousehold: null
+                    dateCreate: 10/21/2015
+                    dateUpdate: 10/21/2015
+                    userCreate: asd-adf-dsf7
+                    userUpdate: asdf-as6-asdf-aas
+                    globalHouseHoldId: sadf-adf-adf
+                  required: false
+            '401':
+              body:
+                application/json:
+                  example:
+                    message: ' Unauthorized'
+                  required: false
+            '500':
+              body:
+                application/json:
+                  example:
+                    message: Resource not found
+                  required: false
+        put:
+          description: update the member record.
+          responses:
+            '200':
+              body:
+                application/json:
+                  example:
+                    message: member successfully updated.
+                  required: false
+            '401':
+              body:
+                application/json:
+                  example:
+                    message: ' Unauthorized'
+                  required: false
+            '500':
+              body:
+                application/json:
+                  example:
+                    message: Resource not found
+                  required: false
+          body:
+            application/json:
+              example:
+                houseHoldMembershipId: null
+                globalClientId: asdf-sad2-daf23
+                relationshipToHeadOfHousehold: null
+                dateCreate: 10/21/2015
+                dateUpdate: 10/21/2015
+                userCreate: asd-adf-dsf7
+                userUpdate: asdf-as6-asdf-aas
+                globalHouseHoldId: sadf-adf-adf
+              required: false
+        delete:
+          description: delete the household member.
+          responses:
+            '200':
+              body:
+                application/json:
+                  example:
+                    message: member deleted successfully.
+                  required: false
+            '401':
+              body:
+                application/json:
+                  example:
+                    message: ' Unauthorized'
+                  required: false
+            '500':
+              body:
+                application/json:
+                  example:
+                    message: Resource not found
+                  required: false
+        uriParameters:
+          member_id: {}
+
