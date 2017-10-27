@@ -1,15 +1,79 @@
-[{
-	"globalHouseHoldId": "asdf-asdf-assdfasfd-df",
-	"headOfHouseholdId": "asdf-asdf-assdfasfd-dd",
-	"dateCreated": "6/06/2016",
-	"dateUpdated": "6/06/2016",
-	"userCreate": "asdf-adf-asdsf",
-	"userUpdate": "asdf-adfasf-asdfasds"
-}, {
-	"globalHouseHoldId": "asdf-asdf-assdfasfd-da",
-	"headOfHouseholdId": "asdf-asdf-assdfasfd-dd-sadf",
-	"dateCreated": "6/06/2016",
-	"dateUpdated": "6/06/2016",
-	"userCreate": "asdf-adf-asdsf",
-	"userUpdate": "asdf-adfasf-asdfasds"
-}]
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://jsonschema.net",
+  "type": "array",
+  "items": [
+    {
+      "id": "http://jsonschema.net/0",
+      "type": "object",
+      "properties": {
+        "globalHouseHoldId": {
+          "id": "http://jsonschema.net/0/globalHouseHoldId",
+          "type": "null"
+        },
+        "headOfHouseholdId": {
+          "id": "http://jsonschema.net/0/headOfHouseholdId",
+          "type": "string"
+        },
+        "dateCreated": {
+          "id": "http://jsonschema.net/0/dateCreated",
+          "type": "string"
+        },
+        "dateUpdated": {
+          "id": "http://jsonschema.net/0/dateUpdated",
+          "type": "string"
+        },
+        "userCreate": {
+          "id": "http://jsonschema.net/0/userCreate",
+          "type": "string"
+        },
+        "userUpdate": {
+          "id": "http://jsonschema.net/0/userUpdate",
+          "type": "string"
+        }
+      },
+      "required": [
+        "globalHouseHoldId",
+        "headOfHouseholdId",
+        "dateCreated",
+        "dateUpdated",
+        "userCreate",
+        "userUpdate"
+      ]
+    },
+    {
+      "id": "http://jsonschema.net/1",
+      "type": "object",
+      "properties": {
+        "globalHouseHoldId": {
+          "id": "http://jsonschema.net/1/globalHouseHoldId",
+          "type": "null"
+        },
+        "headOfHouseholdId": {
+          "id": "http://jsonschema.net/1/headOfHouseholdId",
+          "type": "string"
+        },
+        "dateCreated": {
+          "id": "http://jsonschema.net/1/dateCreated",
+          "type": "string"
+        },
+        "dateUpdated": {
+          "id": "http://jsonschema.net/1/dateUpdated",
+          "type": "string"
+        },
+        "userCreate": {
+          "id": "http://jsonschema.net/1/userCreate",
+          "type": "string"
+        },
+        "userUpdate": {
+          "id": "http://jsonschema.net/1/userUpdate",
+          "type": "string"
+        }
+      }
+    }
+  ],
+  "required": [
+    "0",
+    "1"
+  ]
+}

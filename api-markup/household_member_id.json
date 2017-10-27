@@ -5,7 +5,7 @@
   "properties": {
     "houseHoldMembershipId": {
       "id": "http://jsonschema.net/houseHoldMembershipId",
-      "type": "null"
+      "type": "string"
     },
     "globalClientId": {
       "id": "http://jsonschema.net/globalClientId",

@@ -1,10 +1,44 @@
 {
-  "houseHoldMembershipId": null,
-  "globalClientId": "asdf-sad2-daf23",
-  "relationshipToHeadOfHousehold": null,
-  "dateCreate": "10/21/2015",
-  "dateUpdate": "10/21/2015",
-  "userCreate": "asd-adf-dsf7",
-  "userUpdate": "asdf-as6-asdf-aas",
-  "globalHouseHoldId": "sadf-adf-adf"
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://jsonschema.net",
+  "type": "object",
+  "properties": {
+    "houseHoldMembershipId": {
+      "id": "http://jsonschema.net/houseHoldMembershipId",
+      "type": "null"
+    },
+    "globalClientId": {
+      "id": "http://jsonschema.net/globalClientId",
+      "type": "string"
+    },
+    "relationshipToHeadOfHouseHold": {
+      "id": "http://jsonschema.net/relationshipToHeadOfHousehold",
+      "type": "null"
+    },
+    "dateCreate": {
+      "id": "http://jsonschema.net/dateCreate",
+      "type": "string"
+    },
+    "dateUpdate": {
+      "id": "http://jsonschema.net/dateUpdate",
+      "type": "string"
+    },
+    "userCreate": {
+      "id": "http://jsonschema.net/userCreate",
+      "type": "string"
+    },
+    "userUpdate": {
+      "id": "http://jsonschema.net/userUpdate",
+      "type": "string"
+    }
+  },
+  "required": [
+    "houseHoldMembershipId",
+    "globalClientId",
+    "relationshipToHeadOfHousehold",
+    "dateCreate",
+    "dateUpdate",
+    "userCreate",
+    "userUpdate"
+  ]
 }

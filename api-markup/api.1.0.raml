@@ -3,157 +3,28 @@ title: Global Household
 version: 1.0.0
 protocols:
   - HTTP
-baseUri: 'http://globalhouseholds.cloudhub.io'
+baseUri: https://www.hmislynk.com/globalhouseholds/rest
+mediaType: application/json
+securedBy: [oauth_2_0]
+securitySchemes:
+  oauth_2_0: !include security-schemes/oauth_2_0.raml
 types:
-  global_households:
-    type: string
-  global_households_post:
-    type: string
-  global_households_schema:
-    type: array
-    items:
-      - type: object
-        properties:
-          globalHouseHoldId:
-            type: 'null'
-          headOfHouseholdId:
-            type: string
-          dateCreated:
-            type: string
-          dateUpdated:
-            type: string
-          userCreate:
-            type: string
-          userUpdate:
-            type: string
-      - type: object
-        properties:
-          globalHouseHoldId:
-            type: 'null'
-            required: false
-          headOfHouseholdId:
-            type: string
-            required: false
-          dateCreated:
-            type: string
-            required: false
-          dateUpdated:
-            type: string
-            required: false
-          userCreate:
-            type: string
-            required: false
-          userUpdate:
-            type: string
-            required: false
   global_household:
-    type: string
-  global_household_schema:
-    type: object
-    properties:
-      globalHouseHoldId:
-        type: 'null'
-      headOfHouseholdId:
-        type: string
-      dateCreated:
-        type: string
-      dateUpdated:
-        type: string
-      userCreate:
-        type: string
-      userUpdate:
-        type: string
-  household_members:
-    type: string
-  household_members_schema:
-    type: array
-    items:
-      - type: object
-        properties:
-          houseHoldMembershipId:
-            type: 'null'
-          globalClientId:
-            type: string
-          relationshipToHeadOfHouseHold:
-            type: 'null'
-            required: false
-          dateCreate:
-            type: string
-          dateUpdate:
-            type: string
-          userCreate:
-            type: string
-          userUpdate:
-            type: string
-          globalHouseHoldId:
-            type: string
-      - type: object
-        properties:
-          houseHoldMembershipId:
-            type: 'null'
-            required: false
-          globalClientId:
-            type: string
-            required: false
-          relationshipToHeadOfHouseHold:
-            type: 'null'
-            required: false
-          dateCreate:
-            type: string
-            required: false
-          dateUpdate:
-            type: string
-            required: false
-          userCreate:
-            type: string
-            required: false
-          userUpdate:
-            type: string
-            required: false
-          globalHouseHoldId:
-            type: string
-            required: false
-  household_member:
-    type: string
-  household_member_schema:
-    type: object
-    properties:
-      houseHoldMembershipId:
-        type: 'null'
-      globalClientId:
-        type: string
-      relationshipToHeadOfHouseHold:
-        type: 'null'
-        required: false
-      dateCreate:
-        type: string
-      dateUpdate:
-        type: string
-      userCreate:
-        type: string
-      userUpdate:
-        type: string
+  global_household_id: !include global_household_id.json
+  global_households: !include global_households.json
+  global_households_ids:
+  household_member: !include household_member.json
+  household_members: !include household_members.json
+  household_members_ids:
+
 /global-households:
   get:
-    description: gets housing units
+    description: gets a set of global households
     responses:
       '200':
         body:
           application/json:
-            example:
-              - globalHouseHoldId: asdf-asdf-assdfasfd-df
-                headOfHouseholdId: asdf-asdf-assdfasfd-dd
-                dateCreated: 6/06/2016
-                dateUpdated: 6/06/2016
-                userCreate: asdf-adf-asdsf
-                userUpdate: asdf-adfasf-asdfasds
-              - globalHouseHoldId: asdf-asdf-assdfasfd-da
-                headOfHouseholdId: asdf-asdf-assdfasfd-dd-sadf
-                dateCreated: 6/06/2016
-                dateUpdated: 6/06/2016
-                userCreate: asdf-adf-asdsf
-                userUpdate: asdf-adfasf-asdfasds
-            required: false
+            example: !include global_households_ids_example.json
       '401':
         body:
           application/json:
@@ -174,24 +45,14 @@ types:
         type: boolean
   post:
     description: saves the multiple global household data.
+    body:
+      application/json:
+          type: global_households
     responses:
       '200':
         body:
           application/json:
-            example:
-              - globalHouseHoldId: asdf-asdf-assdfasfd-df
-                headOfHouseholdId: asdf-asdf-assdfasfd-dd
-                dateCreated: 6/06/2016
-                dateUpdated: 6/06/2016
-                userCreate: asdf-adf-asdsf
-                userUpdate: asdf-adfasf-asdfasds
-              - globalHouseHoldId: asdf-asdf-assdfasfd-da
-                headOfHouseholdId: asdf-asdf-assdfasfd-dd-sadf
-                dateCreated: 6/06/2016
-                dateUpdated: 6/06/2016
-                userCreate: asdf-adf-asdsf
-                userUpdate: asdf-adfasf-asdfasds
-            required: false
+            example: !include global_households_example.json
       '401':
         body:
           application/json:
@@ -204,42 +65,16 @@ types:
             example:
               message: Resource not found
             required: false
-    body:
-      application/json:
-        example:
-          - globalHouseHoldId: null
-            headOfHouseholdId: asdf-asdf-assdfasfd-dd
-            dateCreated: 6/06/2016
-            dateUpdated: 6/06/2016
-            userCreate: asdf-adf-asdsf
-            userUpdate: asdf-adfasf-asdfasds
-          - globalHouseHoldId: null
-            headOfHouseholdId: asdf-asdf-assdfasfd-dd-sadf
-            dateCreated: 6/06/2016
-            dateUpdated: 6/06/2016
-            userCreate: asdf-adf-asdsf
-            userUpdate: asdf-adfasf-asdfasds
-        required: false
   put:
     description: update the multiple global household data.
+    body:
+      application/json:
+          type: global_households_ids
     responses:
       '200':
         body:
           application/json:
-            example:
-              - globalHouseHoldId: asdf-asdf-assdfasfd-df
-                headOfHouseholdId: asdf-asdf-assdfasfd-dd
-                dateCreated: 6/06/2016
-                dateUpdated: 6/06/2016
-                userCreate: asdf-adf-asdsf
-                userUpdate: asdf-adfasf-asdfasds
-              - globalHouseHoldId: asdf-asdf-assdfasfd-da
-                headOfHouseholdId: asdf-asdf-assdfasfd-dd-sadf
-                dateCreated: 6/06/2016
-                dateUpdated: 6/06/2016
-                userCreate: asdf-adf-asdsf
-                userUpdate: asdf-adfasf-asdfasds
-            required: false
+            example: !include global_households_ids_example.json
       '401':
         body:
           application/json:
@@ -252,23 +87,8 @@ types:
             example:
               message: Resource not found
             required: false
-    body:
-      application/json:
-        example:
-          - globalHouseHoldId: asdf-asdf-assdfasfd-df
-            headOfHouseholdId: asdf-asdf-assdfasfd-dd
-            dateCreated: 6/06/2016
-            dateUpdated: 6/06/2016
-            userCreate: asdf-adf-asdsf
-            userUpdate: asdf-adfasf-asdfasds
-          - globalHouseHoldId: asdf-asdf-assdfasfd-da
-            headOfHouseholdId: asdf-asdf-assdfasfd-dd-sadf
-            dateCreated: 6/06/2016
-            dateUpdated: 6/06/2016
-            userCreate: asdf-adf-asdsf
-            userUpdate: asdf-adfasf-asdfasds
-        required: false
-  '/{global_household_id}':
+
+  /{global_household_id}:
     displayName: retreive
     description: 'global household services for get,deactivate and delete.'
     get:
@@ -277,14 +97,7 @@ types:
         '200':
           body:
             application/json:
-              example:
-                globalHouseHoldId: null
-                headOfHouseholdId: asdf-asdf-assdfasfd-dd
-                dateCreated: 6/06/2016
-                dateUpdated: 6/06/2016
-                userCreate: asdf-adf-asdsf
-                userUpdate: asdf-adfasf-asdfasds
-              required: false
+              example: !include global_household_example.json
         '401':
           body:
             application/json:
@@ -341,19 +154,17 @@ types:
               required: false
       body:
         application/json:
-          example:
-            globalHouseHoldId: null
-            headOfHouseholdId: asdf-asdf-assdfasfd-dd
-            dateCreated: 6/06/2016
-            dateUpdated: 6/06/2016
-            userCreate: asdf-adf-asdsf
-            userUpdate: asdf-adfasf-asdfasds
+          example: !include global_household_id.json
           required: false
     uriParameters:
       global_household_id: {}
     /members:
-      description: null
+      description: Operations on global household membership
       put:
+        body:
+          application/json:
+            type: household_members_ids
+            example: !include household_member_example.json
         responses:
           '200':
             body:
@@ -373,24 +184,6 @@ types:
                 example:
                   message: Resource not found
                 required: false
-        body:
-          application/json:
-            example:
-              - globalClientId: asdf-sad2-daf23
-                relationshipToHeadOfHousehold: null
-                dateCreate: 10/21/2015
-                dateUpdate: 10/21/2015
-                userCreate: asd-adf-dsf7
-                userUpdate: asdf-as6-asdf-aas
-                globalHouseHoldId: sadf-adf-adf
-              - globalClientId: asdf-sad2-daf23
-                relationshipToHeadOfHousehold: null
-                dateCreate: 10/21/2015
-                dateUpdate: 10/21/2015
-                userCreate: asd-adf-dsf7
-                userUpdate: asdf-as6-asdf-aas
-                globalHouseHoldId: sadf-adf-adf
-            required: false
       post:
         responses:
           '200':
@@ -413,42 +206,13 @@ types:
                 required: false
         body:
           application/json:
-            example:
-              - globalClientId: asdf-sad2-daf23
-                relationshipToHeadOfHousehold: null
-                dateCreate: 10/21/2015
-                dateUpdate: 10/21/2015
-                userCreate: asd-adf-dsf7
-                userUpdate: asdf-as6-asdf-aas
-                globalHouseHoldId: sadf-adf-adf
-              - globalClientId: asdf-sad2-daf23
-                relationshipToHeadOfHousehold: null
-                dateCreate: 10/21/2015
-                dateUpdate: 10/21/2015
-                userCreate: asd-adf-dsf7
-                userUpdate: asdf-as6-asdf-aas
-                globalHouseHoldId: sadf-adf-adf
-            required: false
+            example: !include household_members_ids.json
       get:
         responses:
           '200':
             body:
               application/json:
-                example:
-                  - globalClientId: asdf-sad2-daf23
-                    relationshipToHeadOfHousehold: null
-                    dateCreate: 10/21/2015
-                    dateUpdate: 10/21/2015
-                    userCreate: asd-adf-dsf7
-                    userUpdate: asdf-as6-asdf-aas
-                    globalHouseHoldId: sadf-adf-adf
-                  - globalClientId: asdf-sad2-daf23
-                    relationshipToHeadOfHousehold: null
-                    dateCreate: 10/21/2015
-                    dateUpdate: 10/21/2015
-                    userCreate: asd-adf-dsf7
-                    userUpdate: asdf-as6-asdf-aas
-                    globalHouseHoldId: sadf-adf-adf
+                example: !include global_households_ids_example.json
                 required: false
           '401':
             body:
@@ -462,22 +226,16 @@ types:
                 example:
                   message: Resource not found
                 required: false
-      '/{member_id}':
+      /{member_id}:
+        uriParameters:
+          member_id: {}
         get:
           description: get the member record based on member_id.
           responses:
             '200':
               body:
                 application/json:
-                  example:
-                    houseHoldMembershipId: null
-                    globalClientId: asdf-sad2-daf23
-                    relationshipToHeadOfHousehold: null
-                    dateCreate: 10/21/2015
-                    dateUpdate: 10/21/2015
-                    userCreate: asd-adf-dsf7
-                    userUpdate: asdf-as6-asdf-aas
-                    globalHouseHoldId: sadf-adf-adf
+                  example: !include household_member_example.json
                   required: false
             '401':
               body:
@@ -514,15 +272,7 @@ types:
                   required: false
           body:
             application/json:
-              example:
-                houseHoldMembershipId: null
-                globalClientId: asdf-sad2-daf23
-                relationshipToHeadOfHousehold: null
-                dateCreate: 10/21/2015
-                dateUpdate: 10/21/2015
-                userCreate: asd-adf-dsf7
-                userUpdate: asdf-as6-asdf-aas
-                globalHouseHoldId: sadf-adf-adf
+              example: !include household_member.json
               required: false
         delete:
           description: delete the household member.
@@ -545,6 +295,3 @@ types:
                   example:
                     message: Resource not found
                   required: false
-        uriParameters:
-          member_id: {}
-
