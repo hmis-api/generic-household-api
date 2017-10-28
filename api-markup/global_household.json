@@ -5,7 +5,7 @@
   "properties": {
     "globalHouseHoldId": {
       "id": "http://jsonschema.net/globalHouseHoldId",
-      "type": "string"
+      "type": "null"
     },
     "headOfHouseholdId": {
       "id": "http://jsonschema.net/headOfHouseholdId",

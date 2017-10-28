@@ -9,10 +9,10 @@ securedBy: [oauth_2_0]
 securitySchemes:
   oauth_2_0: !include security-schemes/oauth_2_0.raml
 types:
-  global_household:
+  global_household: !include global_household.json
   global_household_id: !include global_household_id.json
   global_households: !include global_households.json
-  global_households_ids:
+  global_households_ids: !include global_households_ids.json
   household_member: !include household_member.json
   household_members: !include household_members.json
   household_members_ids:
@@ -47,12 +47,13 @@ types:
     description: saves the multiple global household data.
     body:
       application/json:
-          type: global_households
+        type: global_households
+        example: !include global_households_example.json
     responses:
       '200':
         body:
           application/json:
-            example: !include global_households_example.json
+            example: !include global_households_ids_example.json
       '401':
         body:
           application/json:
@@ -70,6 +71,7 @@ types:
     body:
       application/json:
           type: global_households_ids
+          example: !include global_households_ids_example.json
     responses:
       '200':
         body:
