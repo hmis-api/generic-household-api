@@ -1,8 +1,8 @@
 [
   {
-  
+    "houseHoldMembershipId" : "1sdf-sad2-daf23",
     "globalClientId": "asdf-sad2-daf23",
-    "relationshipToHeadOfHousehold": null,
+    "relationshipToHeadOfHousehold": 1,
     "dateCreate": "10/21/2015",
     "dateUpdate": "10/21/2015",
     "userCreate": "asd-adf-dsf7",
@@ -10,9 +10,9 @@
     "globalHouseHoldId": "sadf-adf-adf"
   },
   {
-   
+    "houseHoldMembershipId" : "2sdf-sad2-daf23",
     "globalClientId": "asdf-sad2-daf23",
-    "relationshipToHeadOfHousehold": null,
+    "relationshipToHeadOfHousehold": 2,
     "dateCreate": "10/21/2015",
     "dateUpdate": "10/21/2015",
     "userCreate": "asd-adf-dsf7",

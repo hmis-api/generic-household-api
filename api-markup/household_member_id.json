@@ -13,7 +13,7 @@
     },
     "relationshipToHeadOfHouseHold": {
       "id": "http://jsonschema.net/relationshipToHeadOfHousehold",
-      "type": "null"
+      "type": "integer"
     },
     "dateCreate": {
       "id": "http://jsonschema.net/dateCreate",

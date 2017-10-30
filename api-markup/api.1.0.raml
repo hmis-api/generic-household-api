@@ -14,8 +14,9 @@ types:
   global_households: !include global_households.json
   global_households_ids: !include global_households_ids.json
   household_member: !include household_member.json
+  household_members_id: !include household_member_id.json
   household_members: !include household_members.json
-  household_members_ids:
+  household_members_ids: !include household_members_ids.json
 
 /global-households:
   get:
@@ -91,6 +92,8 @@ types:
             required: false
 
   /{global_household_id}:
+    uriParameters:
+      global_household_id: {}
     displayName: retreive
     description: 'global household services for get,deactivate and delete.'
     get:
@@ -135,6 +138,10 @@ types:
               required: false
     put:
       description: for updating global housing data.
+      body:
+        application/json:
+          type: global_household_id
+          example: !include global_household_id_example.json
       responses:
         '200':
           body:
@@ -154,25 +161,14 @@ types:
               example:
                 message: ' Internal Server Error - retry request'
               required: false
-      body:
-        application/json:
-          example: !include global_household_id.json
-          required: false
-    uriParameters:
-      global_household_id: {}
     /members:
       description: Operations on global household membership
-      put:
-        body:
-          application/json:
-            type: household_members_ids
-            example: !include household_member_example.json
+      get:
         responses:
           '200':
             body:
               application/json:
-                example:
-                  message: 'members updated '
+                example: !include global_households_ids_example.json
                 required: false
           '401':
             body:
@@ -209,12 +205,17 @@ types:
         body:
           application/json:
             example: !include household_members_ids.json
-      get:
+      put:
+        body:
+          application/json:
+            type: household_members_ids
+            example: !include household_members_ids_example.json
         responses:
           '200':
             body:
               application/json:
-                example: !include global_households_ids_example.json
+                example:
+                  message: 'members updated '
                 required: false
           '401':
             body:
@@ -237,7 +238,7 @@ types:
             '200':
               body:
                 application/json:
-                  example: !include household_member_example.json
+                  example: !include household_member_id_example.json
                   required: false
             '401':
               body:
@@ -253,6 +254,11 @@ types:
                   required: false
         put:
           description: update the member record.
+          body:
+            application/json:
+              type: household_members_id
+              example: !include household_member_id_example.json
+              required: false
           responses:
             '200':
               body:
@@ -272,10 +278,6 @@ types:
                   example:
                     message: Resource not found
                   required: false
-          body:
-            application/json:
-              example: !include household_member.json
-              required: false
         delete:
           description: delete the household member.
           responses:

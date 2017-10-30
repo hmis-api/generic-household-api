@@ -1,1 +1,53 @@
-put content here (array of household_member_id)
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://jsonschema.net",
+  "type": "array",
+  "items": [
+    {
+      "id": "householdMemberID",
+      "type": "object",
+      "properties": {
+        "houseHoldMembershipId": {
+          "id": "http://jsonschema.net/houseHoldMembershipId",
+          "type": "string"
+        },
+        "globalClientId": {
+          "id": "http://jsonschema.net/globalClientId",
+          "type": "string"
+        },
+        "relationshipToHeadOfHouseHold": {
+          "id": "http://jsonschema.net/relationshipToHeadOfHousehold",
+          "type": "integer"
+        },
+        "dateCreate": {
+          "id": "http://jsonschema.net/dateCreate",
+          "type": "string"
+        },
+        "dateUpdate": {
+          "id": "http://jsonschema.net/dateUpdate",
+          "type": "string"
+        },
+        "userCreate": {
+          "id": "http://jsonschema.net/userCreate",
+          "type": "string"
+        },
+        "userUpdate": {
+          "id": "http://jsonschema.net/userUpdate",
+          "type": "string"
+        }
+      },
+      "required": [
+        "houseHoldMembershipId",
+        "globalClientId",
+        "relationshipToHeadOfHousehold",
+        "dateCreate",
+        "dateUpdate",
+        "userCreate",
+        "userUpdate"
+      ]
+    }
+  ],
+  "required": [
+    "householdMemberID"
+  ]
+}
