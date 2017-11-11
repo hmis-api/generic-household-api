@@ -14,7 +14,7 @@ types:
   global_households: !include global_households.json
   global_households_ids: !include global_households_ids.json
   household_member: !include household_member.json
-  household_members_id: !include household_member_id.json
+  household_member_id: !include household_member_id.json
   household_members: !include household_members.json
   household_members_ids: !include household_members_ids.json
 
@@ -256,9 +256,8 @@ types:
           description: update the member record.
           body:
             application/json:
-              type: household_members_id
+              type: household_member_id
               example: !include household_member_id_example.json
-              required: false
           responses:
             '200':
               body:
