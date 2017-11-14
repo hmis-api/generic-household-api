@@ -1,9 +1,9 @@
 #%RAML 1.0
 title: Global Household
-version: 1.0.0
+version: 2.0.0
 protocols:
   - HTTP
-baseUri: https://www.hmislynk.com/globalhouseholds/rest
+baseUri: https://www.hmislynk.com/global-household-api/rest/v3
 mediaType: application/json
 securedBy: [oauth_2_0]
 securitySchemes:
@@ -25,7 +25,36 @@ types:
       '200':
         body:
           application/json:
-            example: !include global_households_ids_example.json
+            example: |
+              {
+                     "links":[
+                        {
+                           "rel":"self",
+                           "href":"https://wwwh.hmislynk.com/global-household-api/v3/global-households?size=200"
+                        }
+                     ],
+                     "content":[
+                        {
+                           "globalHouseholdId":"7d968a14-fda9-4bb7-ab89-f6d53ebedc7c",
+                           "headOfHouseholdId":"df2f6b58-e29f-4845-bd20-58a5ec0b2529",
+                           "dateCreated":"11-13-2017 21:19",
+                           "dateUpdated":"11-13-2017 21:19",
+                           "dedupClientId":"74520590-3eb3-11e7-85e4-06c37be0e663",
+                           "links":[
+                              {
+                                 "rel":"/hmis-clientapi/rest/v2014/clients/df2f6b58-e29f-4845-bd20-58a5ec0b2529",
+                                 "href":"client"
+                              }
+                           ]
+                        }
+                     ],
+                     "page":{
+                        "size":200,
+                        "totalElements":1,
+                        "totalPages":1,
+                        "number":0
+                     }
+                  }
       '401':
         body:
           application/json:
@@ -48,49 +77,36 @@ types:
     description: saves the multiple global household data.
     body:
       application/json:
-        type: global_households
-        example: !include global_households_example.json
-    responses:
-      '200':
-        body:
-          application/json:
-            example: !include global_households_ids_example.json
-      '401':
-        body:
-          application/json:
-            example:
-              message: ' Unauthorized'
-            required: false
-      '500':
-        body:
-          application/json:
-            example:
-              message: Resource not found
-            required: false
-  put:
-    description: update the multiple global household data.
-    body:
-      application/json:
-          type: global_households_ids
-          example: !include global_households_ids_example.json
-    responses:
-      '200':
-        body:
-          application/json:
-            example: !include global_households_ids_example.json
-      '401':
-        body:
-          application/json:
-            example:
-              message: ' Unauthorized'
-            required: false
-      '500':
-        body:
-          application/json:
-            example:
-              message: Resource not found
-            required: false
+        example: |
+          {
+            "dedupClientId": "82bf30b0-9a18-11e7-9920-02fe61f7863e",
+            "inactive":false
+            }
 
+    responses:
+      '200':
+        body:
+          application/json:
+            example: |
+                        {
+                          "globalHouseholdId":"68f1dcf9-6135-4f9d-92d7-7cc12ee73b7b",
+                          "headOfHouseholdId":"08bd3d50-cb87-41ac-8b64-b3dc3853c411",
+                          "dateCreated":"11-14-2017 06:52",
+                          "dateUpdated":"11-14-2017 06:52",
+                          "dedupClientId":"82bf30b0-9a18-11e7-9920-02fe61f7863e"
+                          }
+      '401':
+        body:
+          application/json:
+            example:
+              message: ' Unauthorized'
+            required: false
+      '500':
+        body:
+          application/json:
+            example:
+              message: Resource not found
+            required: false
   /{global_household_id}:
     uriParameters:
       global_household_id: {}
@@ -102,7 +118,20 @@ types:
         '200':
           body:
             application/json:
-              example: !include global_household_example.json
+              example: |
+                {
+                   "globalHouseholdId":"68f1dcf9-6135-4f9d-92d7-7cc12ee73b7b",
+                   "headOfHouseholdId":"df2f6b58-e29f-4845-bd20-58a5ec0b2529",
+                   "dateCreated":"11-14-2017 06:52",
+                   "dateUpdated":"11-14-2017 06:52",
+                   "dedupClientId":"74520590-3eb3-11e7-85e4-06c37be0e663",
+                   "links":[
+                      {
+                         "rel":"/hmis-clientapi/rest/v2014/clients/df2f6b58-e29f-4845-bd20-58a5ec0b2529",
+                         "href":"client"
+                      }
+                   ]
+                }
         '401':
           body:
             application/json:
@@ -119,11 +148,7 @@ types:
       description: to delete global household on the basis of uuid
       responses:
         '200':
-          body:
-            application/json:
-              example:
-                message: household successfully deleted
-              required: false
+          description: Global house hold deleted
         '401':
           body:
             application/json:
@@ -137,18 +162,26 @@ types:
                 message: ' Internal Server Error - retry request'
               required: false
     put:
-      description: for updating global housing data.
+      description: update the multiple global household data.
       body:
         application/json:
-          type: global_household_id
-          example: !include global_household_id_example.json
+          example: |
+                  {
+                    "dedupClientId": "71b6497c-fe9d-47a5-be47-37a5159c894b",
+                    "inactive":true
+                  }
       responses:
         '200':
           body:
             application/json:
-              example:
-                message: household successfully updated
-              required: false
+              example: |
+                        {
+                          "globalHouseholdId":"68f1dcf9-6135-4f9d-92d7-7cc12ee73b7b",
+                          "headOfHouseholdId":"08bd3d50-cb87-41ac-8b64-b3dc3853c411",
+                          "dateCreated":"11-14-2017 06:52",
+                          "dateUpdated":"11-14-2017 06:52",
+                          "dedupClientId":"82bf30b0-9a18-11e7-9920-02fe61f7863e"
+                          }
         '401':
           body:
             application/json:
@@ -159,8 +192,9 @@ types:
           body:
             application/json:
               example:
-                message: ' Internal Server Error - retry request'
+                message: Resource not found
               required: false
+
     /members:
       description: Operations on global household membership
       get:
@@ -168,7 +202,39 @@ types:
           '200':
             body:
               application/json:
-                example: !include global_households_ids_example.json
+                example: |
+                            {
+                               "links":[
+                                  {
+                                     "rel":"self",
+                                     "href":"https://www.hmislynk.com/global-household-api/v3/global-households/697386e2-e25d-4674-bdce-c830c96de93e/members"
+                                  }
+                               ],
+                               "content":[
+                                  {
+                                     "householdMembershipId":"af53eb79-b0ac-4772-8d93-cb4e0cee346d",
+                                     "globalClientId":"08bd3d50-cb87-41ac-8b64-b3dc3853c411",
+                                     "dateCreated":"11-14-2017 00:11",
+                                     "dateUpdated":"11-14-2017 00:11",
+                                     "relationshipToHeadOfHousehold":"Testing",
+                                     "globalHouseholdId":"697386e2-e25d-4674-bdce-c830c96de93e",
+                                     "userId":"8b6c6ef2-87c7-47f0-8874-4cca6f09365c",
+                                     "dedupClientId":"82bf30b0-9a18-11e7-9920-02fe61f7863e",
+                                     "links":[
+                                        {
+                                           "rel":"/hmis-clientapi/rest/v2015/clients/08bd3d50-cb87-41ac-8b64-b3dc3853c411",
+                                           "href":"client"
+                                        }
+                                     ]
+                                  }
+                               ],
+                               "page":{
+                                  "size":20,
+                                  "totalElements":1,
+                                  "totalPages":1,
+                                  "number":0
+                               }
+                            }
                 required: false
           '401':
             body:
@@ -187,8 +253,19 @@ types:
           '200':
             body:
               application/json:
-                example:
-                  message: 'address is updated '
+                example: |
+                  [
+                     {
+                        "householdMembershipId":"af53eb79-b0ac-4772-8d93-cb4e0cee346d",
+                        "globalClientId":"08bd3d50-cb87-41ac-8b64-b3dc3853c411",
+                        "dateCreated":"11-14-2017 00:11",
+                        "dateUpdated":"11-14-2017 00:11",
+                        "relationshipToHeadOfHousehold":"Mother",
+                        "globalHouseholdId":"697386e2-e25d-4674-bdce-c830c96de93e",
+                        "userId":"8b6c6ef2-87c7-47f0-8874-4cca6f09365c",
+                        "dedupClientId":"82bf30b0-9a18-11e7-9920-02fe61f7863e"
+                     }
+                  ]
                 required: false
           '401':
             body:
@@ -204,31 +281,17 @@ types:
                 required: false
         body:
           application/json:
-            example: !include household_members_ids.json
-      put:
-        body:
-          application/json:
-            type: household_members_ids
-            example: !include household_members_ids_example.json
-        responses:
-          '200':
-            body:
-              application/json:
-                example:
-                  message: 'members updated '
-                required: false
-          '401':
-            body:
-              application/json:
-                example:
-                  message: ' Unauthorized'
-                required: false
-          '500':
-            body:
-              application/json:
-                example:
-                  message: Resource not found
-                required: false
+            example: |
+                      {
+                         "members":[
+                            {
+                               "relationshipToHeadOfHousehold":"Mother",
+                               "globalHouseholdId":"697386e2-e25d-4674-bdce-c830c96de93e",
+                               "dedupClientId":"91746d23-3b98-4d43-9724-f1c0f2948784",
+                               "inactive":true
+                            }
+                         ]
+                      }
       /{member_id}:
         uriParameters:
           member_id: {}
@@ -238,7 +301,23 @@ types:
             '200':
               body:
                 application/json:
-                  example: !include household_member_id_example.json
+                  example: |
+                    {
+                       "householdMembershipId":"af53eb79-b0ac-4772-8d93-cb4e0cee346d",
+                       "globalClientId":"08bd3d50-cb87-41ac-8b64-b3dc3853c411",
+                       "dateCreated":"11-14-2017 00:11",
+                       "dateUpdated":"11-14-2017 00:11",
+                       "relationshipToHeadOfHousehold":"Mother",
+                       "globalHouseholdId":"697386e2-e25d-4674-bdce-c830c96de93e",
+                       "userId":"8b6c6ef2-87c7-47f0-8874-4cca6f09365c",
+                       "dedupClientId":"82bf30b0-9a18-11e7-9920-02fe61f7863e",
+                       "links":[
+                          {
+                             "rel":"/hmis-clientapi/rest/v2015/clients/08bd3d50-cb87-41ac-8b64-b3dc3853c411",
+                             "href":"client"
+                          }
+                       ]
+                    }
                   required: false
             '401':
               body:
@@ -256,8 +335,11 @@ types:
           description: update the member record.
           body:
             application/json:
-              type: household_member_id
-              example: !include household_member_id_example.json
+              example: |
+                          {
+                             "relationshipToHeadOfHousehold":"Mother",
+                             "dedupClientId":"82bf30b0-9a18-11e7-9920-02fe61f7863e"
+                          }
           responses:
             '200':
               body:
@@ -283,8 +365,6 @@ types:
             '200':
               body:
                 application/json:
-                  example:
-                    message: member deleted successfully.
                   required: false
             '401':
               body:
