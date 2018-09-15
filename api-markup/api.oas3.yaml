@@ -1,1044 +1,654 @@
-{
-  "openapi": "3.0.0",
-  "info": {
-    "title": "Global Household",
-    "version": "3.0.0"
-  },
-  "servers": [
-    {
-      "url": "http://www.hmislynk.com/globalhouseholds/rest"
-    },
-    {
-      "url": "https://www.hmislynk.com/globalhouseholds/rest"
-    }
-  ],
-  "paths": {
-    "/global-households": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": [
-                    {
-                      "globalHouseHoldId": "asdf-asdf-assdfasfd-df",
-                      "headOfHouseholdId": "asdf-asdf-assdfasfd-dd",
-                      "dateCreated": "6/06/2016",
-                      "dateUpdated": "6/06/2016",
-                      "userCreate": "asdf-adf-asdsf",
-                      "userUpdate": "asdf-adfasf-asdfasds"
-                    },
-                    {
-                      "globalHouseHoldId": "asdf-asdf-assdfasfd-da",
-                      "headOfHouseholdId": "asdf-asdf-assdfasfd-dd-sadf",
-                      "dateCreated": "6/06/2016",
-                      "dateUpdated": "6/06/2016",
-                      "userCreate": "asdf-adf-asdsf",
-                      "userUpdate": "asdf-adfasf-asdfasds"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": " Unauthorized"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "errorMessage": "internal server error"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "description": "gets a set of global households",
-        "operationId": "GET_global-households",
-        "parameters": [
-          {
-            "name": "inactive",
-            "in": "query",
-            "description": "Filter the list of global household by inactive status.",
-            "schema": {
-              "type": "boolean"
-            }
-          }
-        ]
-      },
-      "post": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": [
-                    {
-                      "globalHouseHoldId": "asdf-asdf-assdfasfd-df",
-                      "headOfHouseholdId": "asdf-asdf-assdfasfd-dd",
-                      "dateCreated": "6/06/2016",
-                      "dateUpdated": "6/06/2016",
-                      "userCreate": "asdf-adf-asdsf",
-                      "userUpdate": "asdf-adfasf-asdfasds"
-                    },
-                    {
-                      "globalHouseHoldId": "asdf-asdf-assdfasfd-da",
-                      "headOfHouseholdId": "asdf-asdf-assdfasfd-dd-sadf",
-                      "dateCreated": "6/06/2016",
-                      "dateUpdated": "6/06/2016",
-                      "userCreate": "asdf-adf-asdsf",
-                      "userUpdate": "asdf-adfasf-asdfasds"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": " Unauthorized"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": "Resource not found"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "description": "saves the multiple global household data.",
-        "operationId": "POST_global-households",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "example": [
-                {
-                  "globalHouseHoldId": null,
-                  "headOfHouseholdId": "asdf-asdf-assdfasfd-dd",
-                  "dateCreated": "6/06/2016",
-                  "dateUpdated": "6/06/2016",
-                  "userCreate": "asdf-adf-asdsf",
-                  "userUpdate": "asdf-adfasf-asdfasds"
-                },
-                {
-                  "globalHouseHoldId": null,
-                  "headOfHouseholdId": "asdf-asdf-assdfasfd-dd-sadf",
-                  "dateCreated": "6/06/2016",
-                  "dateUpdated": "6/06/2016",
-                  "userCreate": "asdf-adf-asdsf",
-                  "userUpdate": "asdf-adfasf-asdfasds"
-                }
-              ],
-              "schema": {
-                "$ref": "#/components/schemas/global_households"
-              }
-            }
-          },
-          "required": true
-        }
-      },
-      "put": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": [
-                    {
-                      "globalHouseHoldId": "asdf-asdf-assdfasfd-df",
-                      "headOfHouseholdId": "asdf-asdf-assdfasfd-dd",
-                      "dateCreated": "6/06/2016",
-                      "dateUpdated": "6/06/2016",
-                      "userCreate": "asdf-adf-asdsf",
-                      "userUpdate": "asdf-adfasf-asdfasds"
-                    },
-                    {
-                      "globalHouseHoldId": "asdf-asdf-assdfasfd-da",
-                      "headOfHouseholdId": "asdf-asdf-assdfasfd-dd-sadf",
-                      "dateCreated": "6/06/2016",
-                      "dateUpdated": "6/06/2016",
-                      "userCreate": "asdf-adf-asdsf",
-                      "userUpdate": "asdf-adfasf-asdfasds"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": " Unauthorized"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": "Resource not found"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "description": "update the multiple global household data.",
-        "operationId": "PUT_global-households",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "example": [
-                {
-                  "globalHouseHoldId": "asdf-asdf-assdfasfd-df",
-                  "headOfHouseholdId": "asdf-asdf-assdfasfd-dd",
-                  "dateCreated": "6/06/2016",
-                  "dateUpdated": "6/06/2016",
-                  "userCreate": "asdf-adf-asdsf",
-                  "userUpdate": "asdf-adfasf-asdfasds"
-                },
-                {
-                  "globalHouseHoldId": "asdf-asdf-assdfasfd-da",
-                  "headOfHouseholdId": "asdf-asdf-assdfasfd-dd-sadf",
-                  "dateCreated": "6/06/2016",
-                  "dateUpdated": "6/06/2016",
-                  "userCreate": "asdf-adf-asdsf",
-                  "userUpdate": "asdf-adfasf-asdfasds"
-                }
-              ],
-              "schema": {
-                "$ref": "#/components/schemas/global_households_ids"
-              }
-            }
-          },
-          "required": true
-        }
-      }
-    },
-    "/global-households/{global_household_id}": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "globalHouseHoldId": null,
-                    "headOfHouseholdId": "asdf-asdf-assdfasfd-dd",
-                    "dateCreated": "6/06/2016",
-                    "dateUpdated": "6/06/2016",
-                    "userCreate": "asdf-adf-asdsf",
-                    "userUpdate": "asdf-adfasf-asdfasds"
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": " Unauthorized"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "errorMessage": "internal server error"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "description": "retreives global household  details.",
-        "operationId": "GET_global-households-global_household_id"
-      },
-      "delete": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": "household successfully deleted"
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": " Unauthorized"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": " Internal Server Error - retry request"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "description": "to delete global household on the basis of uuid",
-        "operationId": "DELETE_global-households-global_household_id"
-      },
-      "put": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": "household successfully updated"
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": " Unauthorized"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": " Internal Server Error - retry request"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "description": "for updating global housing data.",
-        "operationId": "PUT_global-households-global_household_id",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "example": {
-                "globalHouseHoldId": "bsdf-asdf-assdfasfd-dd",
-                "headOfHouseholdId": "asdf-asdf-assdfasfd-dd",
-                "dateCreated": "6/06/2016",
-                "dateUpdated": "6/06/2016",
-                "userCreate": "asdf-adf-asdsf",
-                "userUpdate": "asdf-adfasf-asdfasds"
-              },
-              "schema": {
-                "$ref": "#/components/schemas/global_household_id"
-              }
-            }
-          },
-          "required": true
-        }
-      },
-      "parameters": [
-        {
-          "name": "global_household_id",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
-        }
-      ]
-    },
-    "/global-households/{global_household_id}/members": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": [
-                    {
-                      "globalHouseHoldId": "asdf-asdf-assdfasfd-df",
-                      "headOfHouseholdId": "asdf-asdf-assdfasfd-dd",
-                      "dateCreated": "6/06/2016",
-                      "dateUpdated": "6/06/2016",
-                      "userCreate": "asdf-adf-asdsf",
-                      "userUpdate": "asdf-adfasf-asdfasds"
-                    },
-                    {
-                      "globalHouseHoldId": "asdf-asdf-assdfasfd-da",
-                      "headOfHouseholdId": "asdf-asdf-assdfasfd-dd-sadf",
-                      "dateCreated": "6/06/2016",
-                      "dateUpdated": "6/06/2016",
-                      "userCreate": "asdf-adf-asdsf",
-                      "userUpdate": "asdf-adfasf-asdfasds"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": " Unauthorized"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": "Resource not found"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "operationId": "GET_global-households-global_household_id-members"
-      },
-      "post": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": "address is updated "
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": " Unauthorized"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": "Resource not found"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "operationId": "POST_global-households-global_household_id-members",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "example": {
-                "$schema": "http://json-schema.org/draft-04/schema#",
-                "id": "http://jsonschema.net",
-                "type": "array",
-                "items": [
-                  {
-                    "id": "householdMemberID",
-                    "type": "object",
-                    "properties": {
-                      "houseHoldMembershipId": {
-                        "id": "http://jsonschema.net/houseHoldMembershipId",
-                        "type": "string"
-                      },
-                      "globalClientId": {
-                        "id": "http://jsonschema.net/globalClientId",
-                        "type": "string"
-                      },
-                      "relationshipToHeadOfHouseHold": {
-                        "id": "http://jsonschema.net/relationshipToHeadOfHousehold",
-                        "type": "integer"
-                      },
-                      "dateCreate": {
-                        "id": "http://jsonschema.net/dateCreate",
-                        "type": "string"
-                      },
-                      "dateUpdate": {
-                        "id": "http://jsonschema.net/dateUpdate",
-                        "type": "string"
-                      },
-                      "userCreate": {
-                        "id": "http://jsonschema.net/userCreate",
-                        "type": "string"
-                      },
-                      "userUpdate": {
-                        "id": "http://jsonschema.net/userUpdate",
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "houseHoldMembershipId",
-                      "globalClientId",
-                      "relationshipToHeadOfHousehold",
-                      "dateCreate",
-                      "dateUpdate",
-                      "userCreate",
-                      "userUpdate"
-                    ]
-                  }
-                ],
-                "required": [
-                  "householdMemberID"
-                ]
-              },
-              "schema": {
-                "type": "string"
-              }
-            }
-          },
-          "required": true
-        }
-      },
-      "put": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": "members updated "
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": " Unauthorized"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": "Resource not found"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "operationId": "PUT_global-households-global_household_id-members",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "example": [
-                {
-                  "houseHoldMembershipId": "1sdf-sad2-daf23",
-                  "globalClientId": "asdf-sad2-daf23",
-                  "relationshipToHeadOfHousehold": 1,
-                  "dateCreate": "10/21/2015",
-                  "dateUpdate": "10/21/2015",
-                  "userCreate": "asd-adf-dsf7",
-                  "userUpdate": "asdf-as6-asdf-aas",
-                  "globalHouseHoldId": "sadf-adf-adf"
-                },
-                {
-                  "houseHoldMembershipId": "2sdf-sad2-daf23",
-                  "globalClientId": "asdf-sad2-daf23",
-                  "relationshipToHeadOfHousehold": 2,
-                  "dateCreate": "10/21/2015",
-                  "dateUpdate": "10/21/2015",
-                  "userCreate": "asd-adf-dsf7",
-                  "userUpdate": "asdf-as6-asdf-aas",
-                  "globalHouseHoldId": "sadf-adf-adf"
-                }
-              ],
-              "schema": {
-                "$ref": "#/components/schemas/household_members_ids"
-              }
-            }
-          },
-          "required": true
-        }
-      },
-      "parameters": [
-        {
-          "name": "global_household_id",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
-        }
-      ]
-    },
-    "/global-households/{global_household_id}/members/{member_id}": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "globalClientId": "asdf-sad2-daf23",
-                    "relationshipToHeadOfHousehold": 1,
-                    "dateCreate": "10/21/2015",
-                    "dateUpdate": "10/21/2015",
-                    "userCreate": "asd-adf-dsf7",
-                    "userUpdate": "asdf-as6-asdf-aas",
-                    "globalHouseHoldId": "sadf-adf-adf"
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": " Unauthorized"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": "Resource not found"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "description": "get the member record based on member_id.",
-        "operationId": "GET_global-households-global_household_id-members-member_id"
-      },
-      "put": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": "member successfully updated."
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": " Unauthorized"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": "Resource not found"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "description": "update the member record.",
-        "operationId": "PUT_global-households-global_household_id-members-member_id",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "example": {
-                "globalClientId": "asdf-sad2-daf23",
-                "relationshipToHeadOfHousehold": 1,
-                "dateCreate": "10/21/2015",
-                "dateUpdate": "10/21/2015",
-                "userCreate": "asd-adf-dsf7",
-                "userUpdate": "asdf-as6-asdf-aas",
-                "globalHouseHoldId": "sadf-adf-adf"
-              },
-              "schema": {
-                "$ref": "#/components/schemas/household_members_id"
-              }
-            }
-          },
-          "required": true
-        }
-      },
-      "delete": {
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": "member deleted successfully."
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": " Unauthorized"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": "Resource not found"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "description": "delete the household member.",
-        "operationId": "DELETE_global-households-global_household_id-members-member_id"
-      },
-      "parameters": [
-        {
-          "name": "member_id",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
-        },
-        {
-          "name": "global_household_id",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "string"
-          }
-        }
-      ]
-    }
-  },
-  "components": {
-    "schemas": {
-      "global_household": {
-        "required": [
-          "globalHouseHoldId",
-          "headOfHouseholdId",
-          "dateCreated",
-          "dateUpdated",
-          "userCreate",
-          "userUpdate"
-        ],
-        "type": "object",
-        "properties": {
-          "globalHouseHoldId": {
-            "type": "string"
-          },
-          "headOfHouseholdId": {
-            "type": "string"
-          },
-          "dateCreated": {
-            "type": "string"
-          },
-          "dateUpdated": {
-            "type": "string"
-          },
-          "userCreate": {
-            "type": "string"
-          },
-          "userUpdate": {
-            "type": "string"
-          }
-        }
-      },
-      "global_household_id": {
-        "required": [
-          "globalHouseHoldId",
-          "headOfHouseholdId",
-          "dateCreated",
-          "dateUpdated",
-          "userCreate",
-          "userUpdate"
-        ],
-        "type": "object",
-        "properties": {
-          "globalHouseHoldId": {
-            "type": "string"
-          },
-          "headOfHouseholdId": {
-            "type": "string"
-          },
-          "dateCreated": {
-            "type": "string"
-          },
-          "dateUpdated": {
-            "type": "string"
-          },
-          "userCreate": {
-            "type": "string"
-          },
-          "userUpdate": {
-            "type": "string"
-          }
-        }
-      },
-      "global_households": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        }
-      },
-      "global_households_ids": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        }
-      },
-      "household_member": {
-        "required": [
-          "houseHoldMembershipId",
-          "globalClientId",
-          "dateCreate",
-          "dateUpdate",
-          "userCreate",
-          "userUpdate"
-        ],
-        "type": "object",
-        "properties": {
-          "houseHoldMembershipId": {
-            "type": "string"
-          },
-          "globalClientId": {
-            "type": "string"
-          },
-          "relationshipToHeadOfHouseHold": {
-            "type": "string"
-          },
-          "dateCreate": {
-            "type": "string"
-          },
-          "dateUpdate": {
-            "type": "string"
-          },
-          "userCreate": {
-            "type": "string"
-          },
-          "userUpdate": {
-            "type": "string"
-          }
-        }
-      },
-      "household_members_id": {
-        "required": [
-          "houseHoldMembershipId",
-          "globalClientId",
-          "dateCreate",
-          "dateUpdate",
-          "userCreate",
-          "userUpdate"
-        ],
-        "type": "object",
-        "properties": {
-          "houseHoldMembershipId": {
-            "type": "string"
-          },
-          "globalClientId": {
-            "type": "string"
-          },
-          "relationshipToHeadOfHouseHold": {
-            "type": "integer"
-          },
-          "dateCreate": {
-            "type": "string"
-          },
-          "dateUpdate": {
-            "type": "string"
-          },
-          "userCreate": {
-            "type": "string"
-          },
-          "userUpdate": {
-            "type": "string"
-          }
-        }
-      },
-      "household_members": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        }
-      },
-      "household_members_ids": {
-        "type": "array",
-        "items": {
-          "required": [
-            "houseHoldMembershipId",
-            "globalClientId",
-            "dateCreate",
-            "dateUpdate",
-            "userCreate",
-            "userUpdate"
-          ],
-          "type": "object",
-          "properties": {
-            "houseHoldMembershipId": {
-              "type": "string"
-            },
-            "globalClientId": {
-              "type": "string"
-            },
-            "relationshipToHeadOfHouseHold": {
-              "type": "integer"
-            },
-            "dateCreate": {
-              "type": "string"
-            },
-            "dateUpdate": {
-              "type": "string"
-            },
-            "userCreate": {
-              "type": "string"
-            },
-            "userUpdate": {
-              "type": "string"
-            }
-          }
-        }
-      }
-    },
-    "responses": {},
-    "parameters": {},
-    "examples": {},
-    "requestBodies": {},
-    "headers": {},
-    "securitySchemes": {
-      "oauth_2_0": {
-        "description": "The HMIS API supports OAuth 2.0 for authenticating all API requests.\n",
-        "type": "oauth2",
-        "flows": {
-          "password": {
-            "tokenUrl": "https://hmislynk.com/hmis-authorization-service/rest/token",
-            "scopes": {
-              "user": "",
-              "administrator": ""
-            }
-          }
-        }
-      }
-    },
-    "links": {},
-    "callbacks": {}
-  }
-}
+openapi: 3.0.0
+info:
+  title: Generic Household
+  version: 3.1.0
+servers:
+  - url: 'http://www.hmislynk.com/global-household-api/rest'
+paths:
+  /generic-households:
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  - genericHouseHoldId: asdf-asdf-assdfasfd-df
+                    headOfHouseholdId: asdf-asdf-assdfasfd-dd
+                    dateCreated: 2016-06-06
+                    dateUpdated: 2016-06-06
+                    userCreate: asdf-adf-asdsf
+                    userUpdate: asdf-adfasf-asdfasds
+                  - genericHouseHoldId: asdf-asdf-assdfasfd-da
+                    headOfHouseholdId: asdf-asdf-assdfasfd-dd-sadf
+                    dateCreated: 2016-06-06
+                    dateUpdated: 2016-06-06
+                    userCreate: asdf-adf-asdsf
+                    userUpdate: asdf-adfasf-asdfasds
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: ' Unauthorized'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  errorMessage: internal server error
+      description: gets a set of generic households
+      operationId: GET_generic-households
+      parameters:
+        - name: inactive
+          in: query
+          description: Filter the list of generic household by inactive status.
+          schema:
+            type: boolean
+    post:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  - genericlHouseHoldId: asdf-asdf-assdfasfd-df
+                    headOfHouseholdId: asdf-asdf-assdfasfd-dd
+                    dateCreated: 2016-06-06
+                    dateUpdated: 2016-06-06
+                    userCreate: asdf-adf-asdsf
+                    userUpdate: asdf-adfasf-asdfasds
+                  - genericlHouseHoldId: asdf-asdf-assdfasfd-da
+                    headOfHouseholdId: asdf-asdf-assdfasfd-dd-sadf
+                    dateCreated: 2016-06-06
+                    dateUpdated: 2016-06-06
+                    userCreate: asdf-adf-asdsf
+                    userUpdate: asdf-adfasf-asdfasds
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: ' Unauthorized'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: Resource not found
+      description: saves the multiple generic household data.
+      operationId: POST_generic-households
+      requestBody:
+        content:
+          application/json:
+            example:
+              - headOfHouseholdId: asdf-asdf-assdfasfd-dd
+              - headOfHouseholdId: asdf-asdf-assdfasfd-dd-sadf
+            schema:
+              $ref: '#/components/schemas/generic_households'
+        required: true
+    put:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  - genericlHouseHoldId: asdf-asdf-assdfasfd-df
+                    headOfHouseholdId: asdf-asdf-assdfasfd-dd
+                    dateCreated: 2016-06-06
+                    dateUpdated: 2016-06-06
+                    userCreate: asdf-adf-asdsf
+                    userUpdate: asdf-adfasf-asdfasds
+                  - genericlHouseHoldId: asdf-asdf-assdfasfd-da
+                    headOfHouseholdId: asdf-asdf-assdfasfd-dd-sadf
+                    dateCreated: 2016-06-06
+                    dateUpdated: 2016-06-06
+                    userCreate: asdf-adf-asdsf
+                    userUpdate: asdf-adfasf-asdfasds
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: ' Unauthorized'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: Resource not found
+      description: update the multiple generic household data.
+      operationId: PUT_generic-households
+      requestBody:
+        content:
+          application/json:
+            example:
+              - genericlHouseHoldId: asdf-asdf-assdfasfd-df
+                headOfHouseholdId: asdf-asdf-assdfasfd-dd
+              - genericlHouseHoldId: asdf-asdf-assdfasfd-da
+                headOfHouseholdId: asdf-asdf-assdfasfd-dd-sadf
+            schema:
+              $ref: '#/components/schemas/generic_households_ids'
+        required: true
+  '/generic-households/{generic_household_id}':
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  genericlHouseHoldId: null
+                  headOfHouseholdId: asdf-asdf-assdfasfd-dd
+                  dateCreated: 2016-06-06
+                  dateUpdated: 2016-06-06
+                  userCreate: asdf-adf-asdsf
+                  userUpdate: asdf-adfasf-asdfasds
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: ' Unauthorized'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  errorMessage: internal server error
+      description: retreives generic household  details.
+    delete:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: household successfully deleted
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: ' Unauthorized'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: ' Internal Server Error - retry request'
+      description: to delete generic household on the basis of uuid
+      operationId: DELETE_generic-households-generic_household_id
+    put:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: household successfully updated
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: ' Unauthorized'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: ' Internal Server Error - retry request'
+      description: for updating generic housing data.
+      operationId: PUT_generic-households-generic_household_id
+      requestBody:
+        content:
+          application/json:
+            example:
+              genericlHouseHoldId: bsdf-asdf-assdfasfd-dd
+              headOfHouseholdId: asdf-asdf-assdfasfd-dd
+              dateCreated: 2016-06-06
+              dateUpdated: 2016-06-06
+              userCreate: asdf-adf-asdsf
+              userUpdate: asdf-adfasf-asdfasds
+            schema:
+              $ref: '#/components/schemas/generic_household_id'
+        required: true
+    parameters:
+      - name: generic_household_id
+        in: path
+        required: true
+        schema:
+          type: string
+  '/generic-households/{generic_household_id}/members':
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  - genericlHouseHoldId: asdf-asdf-assdfasfd-df
+                    headOfHouseholdId: asdf-asdf-assdfasfd-dd
+                    dateCreated: 2016-06-06
+                    dateUpdated: 2016-06-06
+                    userCreate: asdf-adf-asdsf
+                    userUpdate: asdf-adfasf-asdfasds
+                  - genericlHouseHoldId: asdf-asdf-assdfasfd-da
+                    headOfHouseholdId: asdf-asdf-assdfasfd-dd-sadf
+                    dateCreated: 2016-06-06
+                    dateUpdated: 2016-06-06
+                    userCreate: asdf-adf-asdsf
+                    userUpdate: asdf-adfasf-asdfasds
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: ' Unauthorized'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: Resource not found
+    post:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: 'address is updated '
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: ' Unauthorized'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: Resource not found
+      operationId: POST_generic-households-generic_household_id-members
+      requestBody:
+        content:
+          application/json:
+            example:
+              $schema: 'http://json-schema.org/draft-04/schema#'
+              id: 'http://jsonschema.net'
+              type: array
+              items:
+                - id: householdMemberID
+                  type: object
+                  properties:
+                    houseHoldMembershipId:
+                      id: 'http://jsonschema.net/houseHoldMembershipId'
+                      type: string
+                    genericClientId:
+                      id: 'http://jsonschema.net/globalClientId'
+                      type: string
+                    relationshipToHeadOfHouseHold:
+                      id: 'http://jsonschema.net/relationshipToHeadOfHousehold'
+                      type: integer
+                    dateCreate:
+                      id: 'http://jsonschema.net/dateCreate'
+                      type: string
+                    dateUpdate:
+                      id: 'http://jsonschema.net/dateUpdate'
+                      type: string
+                    userCreate:
+                      id: 'http://jsonschema.net/userCreate'
+                      type: string
+                    userUpdate:
+                      id: 'http://jsonschema.net/userUpdate'
+                      type: string
+                  required:
+                    - houseHoldMembershipId
+                    - genericClientId
+                    - relationshipToHeadOfHousehold
+                    - dateCreate
+                    - dateUpdate
+                    - userCreate
+                    - userUpdate
+              required:
+                - householdMemberID
+            schema:
+              type: string
+        required: true
+    put:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: 'members updated '
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: ' Unauthorized'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: Resource not found
+      operationId: PUT_generic-households-generic_household_id-members
+      requestBody:
+        content:
+          application/json:
+            example:
+              - houseHoldMembershipId: 1sdf-sad2-daf23
+                genericClientId: asdf-sad2-daf23
+                relationshipToHeadOfHousehold: 1
+                dateCreate: 2016-06-06
+                dateUpdate: 2016-06-06
+                userCreate: asd-adf-dsf7
+                userUpdate: asdf-as6-asdf-aas
+                genericlHouseHoldId: sadf-adf-adf
+              - houseHoldMembershipId: 2sdf-sad2-daf23
+                genericClientId: asdf-sad2-daf23
+                relationshipToHeadOfHousehold: 2
+                dateCreate: 2016-06-06
+                dateUpdate: 2016-06-06
+                userCreate: asd-adf-dsf7
+                userUpdate: asdf-as6-asdf-aas
+                genericlHouseHoldId: sadf-adf-adf
+            schema:
+              $ref: '#/components/schemas/household_members_ids'
+        required: true
+    parameters:
+      - name: generic_household_id
+        in: path
+        required: true
+        schema:
+          type: string
+  '/generic-households/{generic_household_id}/members/{member_id}':
+    get:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  genericClientId: asdf-sad2-daf23
+                  relationshipToHeadOfHousehold: 1
+                  dateCreate: 2016-06-06
+                  dateUpdate: 2016-06-06
+                  userCreate: asd-adf-dsf7
+                  userUpdate: asdf-as6-asdf-aas
+                  genericlHouseHoldId: sadf-adf-adf
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: ' Unauthorized'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: Resource not found
+      description: get the member record based on member_id.
+    put:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: member successfully updated.
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: ' Unauthorized'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: Resource not found
+      description: update the member record.
+      operationId: PUT_generic-households-generic_household_id-members-member_id
+      requestBody:
+        content:
+          application/json:
+            example:
+              genericClientId: asdf-sad2-daf23
+              relationshipToHeadOfHousehold: 1
+              dateCreate: 2016-06-06
+              dateUpdate: 2016-06-06
+              userCreate: asd-adf-dsf7
+              userUpdate: asdf-as6-asdf-aas
+              genericlHouseHoldId: sadf-adf-adf
+            schema:
+              $ref: '#/components/schemas/household_members_id'
+        required: true
+    delete:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: member deleted successfully.
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: ' Unauthorized'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: Resource not found
+      description: delete the household member.
+      operationId: DELETE_generic-households-generic_household_id-members-member_id
+    parameters:
+      - name: member_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: generic_household_id
+        in: path
+        required: true
+        schema:
+          type: string
+components:
+  schemas:
+    generic_household:
+      required:
+        - genericlHouseHoldId
+        - headOfHouseholdId
+        - dateCreated
+        - dateUpdated
+        - userCreate
+        - userUpdate
+      type: object
+      properties:
+        genericlHouseHoldId:
+          type: string
+        headOfHouseholdId:
+          type: string
+        dateCreated:
+          type: string
+        dateUpdated:
+          type: string
+        userCreate:
+          type: string
+        userUpdate:
+          type: string
+    generic_household_id:
+      required:
+        - genericlHouseHoldId
+        - headOfHouseholdId
+        - dateCreated
+        - dateUpdated
+        - userCreate
+        - userUpdate
+      type: object
+      properties:
+        genericlHouseHoldId:
+          type: string
+        headOfHouseholdId:
+          type: string
+        dateCreated:
+          type: string
+        dateUpdated:
+          type: string
+        userCreate:
+          type: string
+        userUpdate:
+          type: string
+    generic_households:
+      type: array
+      items:
+        type: string
+    generic_households_ids:
+      type: array
+      items:
+        type: string
+    household_member:
+      required:
+        - houseHoldMembershipId
+        - genericClientId
+        - dateCreate
+        - dateUpdate
+        - userCreate
+        - userUpdate
+      type: object
+      properties:
+        houseHoldMembershipId:
+          type: string
+        genericClientId:
+          type: string
+        relationshipToHeadOfHouseHold:
+          type: string
+        dateCreate:
+          type: string
+        dateUpdate:
+          type: string
+        userCreate:
+          type: string
+        userUpdate:
+          type: string
+    household_members_id:
+      required:
+        - houseHoldMembershipId
+        - genericClientId
+        - dateCreate
+        - dateUpdate
+        - userCreate
+        - userUpdate
+      type: object
+      properties:
+        houseHoldMembershipId:
+          type: string
+        genericClientId:
+          type: string
+        relationshipToHeadOfHouseHold:
+          type: integer
+        dateCreate:
+          type: string
+        dateUpdate:
+          type: string
+        userCreate:
+          type: string
+        userUpdate:
+          type: string
+    household_members:
+      type: array
+      items:
+        type: string
+    household_members_ids:
+      type: array
+      items:
+        required:
+          - houseHoldMembershipId
+          - genericClientId
+          - dateCreate
+          - dateUpdate
+          - userCreate
+          - userUpdate
+        type: object
+        properties:
+          houseHoldMembershipId:
+            type: string
+          genericClientId:
+            type: string
+          relationshipToHeadOfHouseHold:
+            type: integer
+          dateCreate:
+            type: string
+          dateUpdate:
+            type: string
+          userCreate:
+            type: string
+          userUpdate:
+            type: string
+  responses: {}
+  parameters: {}
+  examples: {}
+  requestBodies: {}
+  headers: {}
+  securitySchemes:
+    oauth_2_0:
+      description: |
+        The HMIS API supports OAuth 2.0 for authenticating all API requests.
+      type: oauth2
+      flows:
+        password:
+          tokenUrl: 'https://hmislynk.com/hmis-authorization-service/rest/token'
+          scopes:
+            user: ''
+            administrator: ''
+  links: {}
+  callbacks: {}
