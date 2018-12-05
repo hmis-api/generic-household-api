@@ -248,18 +248,35 @@ paths:
             application/json:
               schema:
                 example:
-                  - genericlHouseHoldId: asdf-asdf-assdfasfd-df
-                    headOfHouseholdId: asdf-asdf-assdfasfd-dd
-                    dateCreated: 2016-06-06
-                    dateUpdated: 2016-06-06
-                    userCreate: asdf-adf-asdsf
-                    userUpdate: asdf-adfasf-asdfasds
-                  - genericlHouseHoldId: asdf-asdf-assdfasfd-da
-                    headOfHouseholdId: asdf-asdf-assdfasfd-dd-sadf
-                    dateCreated: 2016-06-06
-                    dateUpdated: 2016-06-06
-                    userCreate: asdf-adf-asdsf
-                    userUpdate: asdf-adfasf-asdfasds
+                  links:
+                  - rel: self
+                    href: http://www.hmislynk.com/global-household-api/generic-households/7667b25f-102b-4aa6-8ce4-e714be2f98b5/members
+                  content:
+                  - householdMembershipId: 61acf5ba-8428-435e-9e89-bd2d68bc508a
+                    dateCreated: 2018-12-05 04:06
+                    dateUpdated: 2018-12-05 04:06
+                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                    genericClientId: 08bd3d50-cb87-41ac-8b64-b3dc3853c411
+                    genericHouseholdId: 7667b25f-102b-4aa6-8ce4-e714be2f98b5
+                    links:
+                    - rel: "/hmis-clientapi/rest/v2015/clients/08bd3d50-cb87-41ac-8b64-b3dc3853c411"
+                      href: client
+                  - householdMembershipId: ca4c5505-5be0-4fca-821d-e7f74e131347
+                    dateCreated: 2018-12-05 04:06
+                    dateUpdated: 2018-12-05 04:06
+                    relationshipToHeadOfHousehold: Testing
+                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                    genericClientId: 91746d23-3b98-4d43-9724-f1c0f2948784
+                    genericHouseholdId: 7667b25f-102b-4aa6-8ce4-e714be2f98b5
+                    links:
+                    - rel: "/hmis-clientapi/rest/v2015/clients/91746d23-3b98-4d43-9724-f1c0f2948784"
+                      href: client
+                  page:
+                    size: 20
+                    totalElements: 2
+                    totalPages: 1
+                    number: 0
+
         '401':
           description: ''
           content:
