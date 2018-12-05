@@ -14,18 +14,110 @@ paths:
             application/json:
               schema:
                 example:
-                  - genericHouseHoldId: asdf-asdf-assdfasfd-df
-                    headOfHouseholdId: asdf-asdf-assdfasfd-dd
-                    dateCreated: 2016-06-06
-                    dateUpdated: 2016-06-06
-                    userCreate: asdf-adf-asdsf
-                    userUpdate: asdf-adfasf-asdfasds
-                  - genericHouseHoldId: asdf-asdf-assdfasfd-da
-                    headOfHouseholdId: asdf-asdf-assdfasfd-dd-sadf
-                    dateCreated: 2016-06-06
-                    dateUpdated: 2016-06-06
-                    userCreate: asdf-adf-asdsf
-                    userUpdate: asdf-adfasf-asdfasds
+                  links:
+                  - rel: first
+                    href: http://www.hslynk.com/global-household-api/generic-households?page=0&size=10
+                  - rel: self
+                    href: http://www.hslynk.com/global-household-api/generic-households?size=10
+                  - rel: next
+                    href: http://www.hslynk.com/global-household-api/generic-households?page=1&size=10
+                  - rel: last
+                    href: http://www.hslynk.com/global-household-api/generic-households?page=1&size=10
+                  content:
+                  - headOfHouseholdId: af6a72e5-b671-4fce-ac87-58590390af78
+                    dateCreated: 2016-11-25 11:33
+                    dateUpdated: 2016-11-25 11:33
+                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                    genericHouseholdId: 6d4cd1b8-e1e4-4701-8966-b4c45fdfc0f1
+                    links:
+                    - rel: "/hmis-clientapi/rest/v2015/clients/af6a72e5-b671-4fce-ac87-58590390af78"
+                      href: client
+                  - headOfHouseholdId: acd0a00d-faa5-4cd5-9f8c-4ffa431af8e0
+                    dateCreated: 2016-11-02 04:43
+                    dateUpdated: 2016-11-02 04:43
+                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                    genericHouseholdId: 58c7292b-1e86-4c55-ba73-3118f47b1807
+                    links:
+                    - rel: "/hmis-clientapi/rest/v2015/clients/acd0a00d-faa5-4cd5-9f8c-4ffa431af8e0"
+                      href: client
+                  - headOfHouseholdId: bbbeed84-7053-4c0b-b47e-459290bad079
+                    dateCreated: 2016-11-02 04:43
+                    dateUpdated: 2016-11-02 04:43
+                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                    genericHouseholdId: eb1c1ef1-4004-45a6-897c-e9e19bfd29da
+                    links:
+                    - rel: "/hmis-clientapi/rest/v2015/clients/bbbeed84-7053-4c0b-b47e-459290bad079"
+                      href: client
+                  - headOfHouseholdId: acd0a00d-faa5-4cd5-9f8c-4ffa431af8e0
+                    dateCreated: 2016-11-02 04:43
+                    dateUpdated: 2016-11-02 04:43
+                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                    genericHouseholdId: 91302209-bd35-47d4-b590-e8768f4b7a37
+                    links:
+                    - rel: "/hmis-clientapi/rest/v2015/clients/acd0a00d-faa5-4cd5-9f8c-4ffa431af8e0"
+                      href: client
+                  - headOfHouseholdId: bbbeed84-7053-4c0b-b47e-459290bad079
+                    dateCreated: 2016-11-02 04:43
+                    dateUpdated: 2016-11-02 04:43
+                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                    genericHouseholdId: 177cd4d5-a265-4da0-978a-1d8dd986aa66
+                    links:
+                    - rel: "/hmis-clientapi/rest/v2015/clients/bbbeed84-7053-4c0b-b47e-459290bad079"
+                      href: client
+                  - headOfHouseholdId: acd0a00d-faa5-4cd5-9f8c-4ffa431af8e0
+                    dateCreated: 2016-11-02 04:43
+                    dateUpdated: 2016-11-02 04:43
+                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                    genericHouseholdId: 424ea5ea-76e9-4756-b517-29b19120b678
+                    links:
+                    - rel: "/hmis-clientapi/rest/v2015/clients/acd0a00d-faa5-4cd5-9f8c-4ffa431af8e0"
+                      href: client
+                  - headOfHouseholdId: bbbeed84-7053-4c0b-b47e-459290bad079
+                    dateCreated: 2016-11-02 04:43
+                    dateUpdated: 2016-11-02 04:43
+                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                    genericHouseholdId: f46b7185-00fc-4c60-ae6f-b88d62a616d0
+                    links:
+                    - rel: "/hmis-clientapi/rest/v2015/clients/bbbeed84-7053-4c0b-b47e-459290bad079"
+                      href: client
+                  - headOfHouseholdId: acd0a00d-faa5-4cd5-9f8c-4ffa431af8e0
+                    dateCreated: 2016-11-02 04:43
+                    dateUpdated: 2016-11-02 04:43
+                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                    genericHouseholdId: 04c5cc48-f779-4c66-a6f3-9357e19d1910
+                    links:
+                    - rel: "/hmis-clientapi/rest/v2015/clients/acd0a00d-faa5-4cd5-9f8c-4ffa431af8e0"
+                      href: client
+                  - headOfHouseholdId: af6a72e5-b671-4fce-ac87-58590390af78
+                    dateCreated: 2016-11-24 17:05
+                    dateUpdated: 2016-11-24 17:05
+                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                    genericHouseholdId: a509ae08-7347-4783-91ae-9a53758b71c1
+                    links:
+                    - rel: "/hmis-clientapi/rest/v2015/clients/af6a72e5-b671-4fce-ac87-58590390af78"
+                      href: client
+                  - headOfHouseholdId: af6a72e5-b671-4fce-ac87-58590390af78
+                    dateCreated: 2016-11-24 17:06
+                    dateUpdated: 2016-11-24 17:06
+                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                    genericHouseholdId: cfdf2580-9502-4ae1-b849-0a80a089b726
+                    links:
+                    - rel: "/hmis-clientapi/rest/v2015/clients/af6a72e5-b671-4fce-ac87-58590390af78"
+                      href: client
+                  - headOfHouseholdId: af6a72e5-b671-4fce-ac87-58590390af78
+                    dateCreated: 2016-11-24 17:06
+                    dateUpdated: 2016-11-24 17:06
+                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                    genericHouseholdId: 26869883-e2c4-44f3-966a-4d58bf446958
+                    links:
+                    - rel: "/hmis-clientapi/rest/v2015/clients/af6a72e5-b671-4fce-ac87-58590390af78"
+                      href: client
+                  page:
+                    size: 8
+                    totalElements: 235
+                    totalPages: 2
+                    number: 0
+
         '401':
           description: ''
           content:
@@ -250,7 +342,7 @@ paths:
                 example:
                   links:
                   - rel: self
-                    href: http://www.hmislynk.com/global-household-api/generic-households/7667b25f-102b-4aa6-8ce4-e714be2f98b5/members
+                    href: http://www.hslynk.com/global-household-api/generic-households/7667b25f-102b-4aa6-8ce4-e714be2f98b5/members
                   content:
                   - householdMembershipId: 61acf5ba-8428-435e-9e89-bd2d68bc508a
                     dateCreated: 2018-12-05 04:06
