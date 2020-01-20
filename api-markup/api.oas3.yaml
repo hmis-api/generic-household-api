@@ -19,13 +19,13 @@ paths:
                 example:
                   links:
                   - rel: first
-                    href: https://www.hslynk.com/global-household-api/generic-households?page=0&size=10
+                    href: https://www.hslynk.com/global-household-api/generichouseholds?page=0&size=10
                   - rel: self
-                    href: https://www.hslynk.com/global-household-api/generic-households?size=10
+                    href: https://www.hslynk.com/global-household-api/generichouseholds?size=10
                   - rel: next
-                    href: https://www.hslynk.com/global-household-api/generic-households?page=1&size=10
+                    href: https://www.hslynk.com/global-household-api/generichouseholds?page=1&size=10
                   - rel: last
-                    href: https://www.hslynk.com/global-household-api/generic-households?page=1&size=10
+                    href: https://www.hslynk.com/global-household-api/generichouseholds?page=1&size=10
                   content:
                   - headOfHouseholdId: af6a72e5-b671-4fce-ac87-58590390af78
                     dateCreated: 2016-11-25 11:33
@@ -1156,6 +1156,7 @@ paths:
                   message: Resource not found
       description: get the member record based on member_id.
     put:
+      deprecated: true    
       responses:
         '200':
           description: ''
