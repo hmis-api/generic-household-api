@@ -1,14 +1,14 @@
 openapi: 3.0.0
 info:
   title: Generic Household
-  version: 3.1.1
+  version: 3.1.2
   description: |
        **Note :**
               Please note that the partial updates are supported via PUT APIs. However, Note that If "null" value is passed for any element, in the PUT request body, it will be ignored. An empty string value should be sent (instead of "null" value) for the elements that need to be updated with NULL values.
 servers:
   - url: 'https://www.hslynk.com/global-household-api/rest'
 paths:
-  /generic-households:
+  /generichouseholds:
     get:
       responses:
         '200':
@@ -235,7 +235,7 @@ paths:
             schema:
               $ref: '#/components/schemas/generic_households_ids'
         required: true
-  '/generic-households/{generichouseholdid}':
+  '/generichouseholds/{generichouseholdid}':
     get:
       responses:
         '200':
@@ -334,7 +334,7 @@ paths:
         required: true
         schema:
           type: string
-  '/generic-households/{generichouseholdid}/members':
+  '/generichouseholds/{generichouseholdid}/members':
     get:
       responses:
         '200':
@@ -508,7 +508,7 @@ paths:
         required: true
         schema:
           type: string
-  '/generic-households/{generichouseholdid}/members/{memberid}':
+  '/generichouseholds/{generichouseholdid}/members/{memberid}':
     get:
       responses:
         '200':
@@ -614,6 +614,623 @@ paths:
         required: true
         schema:
           type: string
+  /generic-households:
+    get:
+      deprecated: true    
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  links:
+                  - rel: first
+                    href: https://www.hslynk.com/global-household-api/generic-households?page=0&size=10
+                  - rel: self
+                    href: https://www.hslynk.com/global-household-api/generic-households?size=10
+                  - rel: next
+                    href: https://www.hslynk.com/global-household-api/generic-households?page=1&size=10
+                  - rel: last
+                    href: https://www.hslynk.com/global-household-api/generic-households?page=1&size=10
+                  content:
+                  - headOfHouseholdId: af6a72e5-b671-4fce-ac87-58590390af78
+                    dateCreated: 2016-11-25 11:33
+                    dateUpdated: 2016-11-25 11:33
+                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                    genericHouseholdId: 6d4cd1b8-e1e4-4701-8966-b4c45fdfc0f1
+                    links:
+                    - rel: "/hmis-clientapi/rest/v2015/clients/af6a72e5-b671-4fce-ac87-58590390af78"
+                      href: client
+                  - headOfHouseholdId: acd0a00d-faa5-4cd5-9f8c-4ffa431af8e0
+                    dateCreated: 2016-11-02 04:43
+                    dateUpdated: 2016-11-02 04:43
+                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                    genericHouseholdId: 58c7292b-1e86-4c55-ba73-3118f47b1807
+                    links:
+                    - rel: "/hmis-clientapi/rest/v2015/clients/acd0a00d-faa5-4cd5-9f8c-4ffa431af8e0"
+                      href: client
+                  - headOfHouseholdId: bbbeed84-7053-4c0b-b47e-459290bad079
+                    dateCreated: 2016-11-02 04:43
+                    dateUpdated: 2016-11-02 04:43
+                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                    genericHouseholdId: eb1c1ef1-4004-45a6-897c-e9e19bfd29da
+                    links:
+                    - rel: "/hmis-clientapi/rest/v2015/clients/bbbeed84-7053-4c0b-b47e-459290bad079"
+                      href: client
+                  - headOfHouseholdId: acd0a00d-faa5-4cd5-9f8c-4ffa431af8e0
+                    dateCreated: 2016-11-02 04:43
+                    dateUpdated: 2016-11-02 04:43
+                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                    genericHouseholdId: 91302209-bd35-47d4-b590-e8768f4b7a37
+                    links:
+                    - rel: "/hmis-clientapi/rest/v2015/clients/acd0a00d-faa5-4cd5-9f8c-4ffa431af8e0"
+                      href: client
+                  - headOfHouseholdId: bbbeed84-7053-4c0b-b47e-459290bad079
+                    dateCreated: 2016-11-02 04:43
+                    dateUpdated: 2016-11-02 04:43
+                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                    genericHouseholdId: 177cd4d5-a265-4da0-978a-1d8dd986aa66
+                    links:
+                    - rel: "/hmis-clientapi/rest/v2015/clients/bbbeed84-7053-4c0b-b47e-459290bad079"
+                      href: client
+                  - headOfHouseholdId: acd0a00d-faa5-4cd5-9f8c-4ffa431af8e0
+                    dateCreated: 2016-11-02 04:43
+                    dateUpdated: 2016-11-02 04:43
+                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                    genericHouseholdId: 424ea5ea-76e9-4756-b517-29b19120b678
+                    links:
+                    - rel: "/hmis-clientapi/rest/v2015/clients/acd0a00d-faa5-4cd5-9f8c-4ffa431af8e0"
+                      href: client
+                  - headOfHouseholdId: bbbeed84-7053-4c0b-b47e-459290bad079
+                    dateCreated: 2016-11-02 04:43
+                    dateUpdated: 2016-11-02 04:43
+                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                    genericHouseholdId: f46b7185-00fc-4c60-ae6f-b88d62a616d0
+                    links:
+                    - rel: "/hmis-clientapi/rest/v2015/clients/bbbeed84-7053-4c0b-b47e-459290bad079"
+                      href: client
+                  - headOfHouseholdId: acd0a00d-faa5-4cd5-9f8c-4ffa431af8e0
+                    dateCreated: 2016-11-02 04:43
+                    dateUpdated: 2016-11-02 04:43
+                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                    genericHouseholdId: 04c5cc48-f779-4c66-a6f3-9357e19d1910
+                    links:
+                    - rel: "/hmis-clientapi/rest/v2015/clients/acd0a00d-faa5-4cd5-9f8c-4ffa431af8e0"
+                      href: client
+                  - headOfHouseholdId: af6a72e5-b671-4fce-ac87-58590390af78
+                    dateCreated: 2016-11-24 17:05
+                    dateUpdated: 2016-11-24 17:05
+                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                    genericHouseholdId: a509ae08-7347-4783-91ae-9a53758b71c1
+                    links:
+                    - rel: "/hmis-clientapi/rest/v2015/clients/af6a72e5-b671-4fce-ac87-58590390af78"
+                      href: client
+                  - headOfHouseholdId: af6a72e5-b671-4fce-ac87-58590390af78
+                    dateCreated: 2016-11-24 17:06
+                    dateUpdated: 2016-11-24 17:06
+                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                    genericHouseholdId: cfdf2580-9502-4ae1-b849-0a80a089b726
+                    links:
+                    - rel: "/hmis-clientapi/rest/v2015/clients/af6a72e5-b671-4fce-ac87-58590390af78"
+                      href: client
+                  - headOfHouseholdId: af6a72e5-b671-4fce-ac87-58590390af78
+                    dateCreated: 2016-11-24 17:06
+                    dateUpdated: 2016-11-24 17:06
+                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                    genericHouseholdId: 26869883-e2c4-44f3-966a-4d58bf446958
+                    links:
+                    - rel: "/hmis-clientapi/rest/v2015/clients/af6a72e5-b671-4fce-ac87-58590390af78"
+                      href: client
+                  page:
+                    size: 8
+                    totalElements: 235
+                    totalPages: 2
+                    number: 0
+
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: ' Unauthorized'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  errorMessage: internal server error
+      description: gets a set of generic households
+      operationId: GET_generic-households
+      parameters:
+        - name: inactive
+          in: query
+          description: Filter the list of generic household by inactive status.
+          schema:
+            type: boolean
+    post:
+      deprecated: true    
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  - genericlHouseHoldId: asdf-asdf-assdfasfd-df
+                    headOfHouseholdId: asdf-asdf-assdfasfd-dd
+                    dateCreated: 2016-06-06
+                    dateUpdated: 2016-06-06
+                    userCreate: asdf-adf-asdsf
+                    userUpdate: asdf-adfasf-asdfasds
+                  - genericlHouseHoldId: asdf-asdf-assdfasfd-da
+                    headOfHouseholdId: asdf-asdf-assdfasfd-dd-sadf
+                    dateCreated: 2016-06-06
+                    dateUpdated: 2016-06-06
+                    userCreate: asdf-adf-asdsf
+                    userUpdate: asdf-adfasf-asdfasds
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: ' Unauthorized'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: Resource not found
+      description: saves the multiple generic household data.
+      operationId: POST_dep_generic-households
+      requestBody:
+        content:
+          application/json:
+            example:
+              - headOfHouseholdId: asdf-asdf-assdfasfd-dd
+              - headOfHouseholdId: asdf-asdf-assdfasfd-dd-sadf
+            schema:
+              $ref: '#/components/schemas/generic_households'
+        required: true
+    put:
+      deprecated: true    
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  - genericlHouseHoldId: asdf-asdf-assdfasfd-df
+                    headOfHouseholdId: asdf-asdf-assdfasfd-dd
+                    dateCreated: 2016-06-06
+                    dateUpdated: 2016-06-06
+                    userCreate: asdf-adf-asdsf
+                    userUpdate: asdf-adfasf-asdfasds
+                  - genericlHouseHoldId: asdf-asdf-assdfasfd-da
+                    headOfHouseholdId: asdf-asdf-assdfasfd-dd-sadf
+                    dateCreated: 2016-06-06
+                    dateUpdated: 2016-06-06
+                    userCreate: asdf-adf-asdsf
+                    userUpdate: asdf-adfasf-asdfasds
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: ' Unauthorized'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: Resource not found
+      description: update the multiple generic household data.
+      operationId: PUT_dep_generic-households
+      requestBody:
+        content:
+          application/json:
+            example:
+              - genericlHouseHoldId: asdf-asdf-assdfasfd-df
+                headOfHouseholdId: asdf-asdf-assdfasfd-dd
+              - genericlHouseHoldId: asdf-asdf-assdfasfd-da
+                headOfHouseholdId: asdf-asdf-assdfasfd-dd-sadf
+            schema:
+              $ref: '#/components/schemas/generic_households_ids'
+        required: true
+  '/generic-households/{generichouseholdid}':
+    get:
+      deprecated: true    
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  genericlHouseHoldId: null
+                  headOfHouseholdId: asdf-asdf-assdfasfd-dd
+                  dateCreated: 2016-06-06
+                  dateUpdated: 2016-06-06
+                  userCreate: asdf-adf-asdsf
+                  userUpdate: asdf-adfasf-asdfasds
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: ' Unauthorized'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  errorMessage: internal server error
+      description: retreives generic household  details.
+    delete:
+      deprecated: true    
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: household successfully deleted
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: ' Unauthorized'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: ' Internal Server Error - retry request'
+      description: to delete generic household on the basis of uuid
+      operationId: DELETE_generic-households-generic_household_id
+    put:
+      deprecated: true    
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: household successfully updated
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: ' Unauthorized'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: ' Internal Server Error - retry request'
+      description: for updating generic housing data.
+      operationId: PUT_dep_generic-households-generic_household_id
+      requestBody:
+        content:
+          application/json:
+            example:
+              genericlHouseHoldId: bsdf-asdf-assdfasfd-dd
+              headOfHouseholdId: asdf-asdf-assdfasfd-dd
+              dateCreated: 2016-06-06
+              dateUpdated: 2016-06-06
+              userCreate: asdf-adf-asdsf
+              userUpdate: asdf-adfasf-asdfasds
+            schema:
+              $ref: '#/components/schemas/generic_household_id'
+        required: true
+    parameters:
+      - name: generichouseholdid
+        in: path
+        required: true
+        schema:
+          type: string
+  '/generic-households/{generichouseholdid}/members':
+    get:
+      deprecated: true    `
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  links:
+                  - rel: self
+                    href: https://www.hslynk.com/global-household-api/generic-households/7667b25f-102b-4aa6-8ce4-e714be2f98b5/members
+                  content:
+                  - householdMembershipId: 61acf5ba-8428-435e-9e89-bd2d68bc508a
+                    dateCreated: 2018-12-05 04:06
+                    dateUpdated: 2018-12-05 04:06
+                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                    genericClientId: 08bd3d50-cb87-41ac-8b64-b3dc3853c411
+                    genericHouseholdId: 7667b25f-102b-4aa6-8ce4-e714be2f98b5
+                    links:
+                    - rel: "/hmis-clientapi/rest/v2015/clients/08bd3d50-cb87-41ac-8b64-b3dc3853c411"
+                      href: client
+                  - householdMembershipId: ca4c5505-5be0-4fca-821d-e7f74e131347
+                    dateCreated: 2018-12-05 04:06
+                    dateUpdated: 2018-12-05 04:06
+                    relationshipToHeadOfHousehold: Testing
+                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                    genericClientId: 91746d23-3b98-4d43-9724-f1c0f2948784
+                    genericHouseholdId: 7667b25f-102b-4aa6-8ce4-e714be2f98b5
+                    links:
+                    - rel: "/hmis-clientapi/rest/v2015/clients/91746d23-3b98-4d43-9724-f1c0f2948784"
+                      href: client
+                  page:
+                    size: 20
+                    totalElements: 2
+                    totalPages: 1
+                    number: 0
+
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: ' Unauthorized'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: Resource not found
+    post:
+      deprecated: true    
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: 'address is updated '
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: ' Unauthorized'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: Resource not found
+      operationId: POST_dep_generic-households-generic_household_id-members
+      requestBody:
+        content:
+          application/json:
+            example:
+              $schema: 'https://json-schema.org/draft-04/schema#'
+              id: 'https://jsonschema.net'
+              type: array
+              items:
+                - id: householdMemberID
+                  type: object
+                  properties:
+                    houseHoldMembershipId:
+                      id: 'https://jsonschema.net/houseHoldMembershipId'
+                      type: string
+                    genericClientId:
+                      id: 'https://jsonschema.net/globalClientId'
+                      type: string
+                    relationshipToHeadOfHouseHold:
+                      id: 'https://jsonschema.net/relationshipToHeadOfHousehold'
+                      type: integer
+                    dateCreate:
+                      id: 'https://jsonschema.net/dateCreate'
+                      type: string
+                    dateUpdate:
+                      id: 'https://jsonschema.net/dateUpdate'
+                      type: string
+                    userCreate:
+                      id: 'https://jsonschema.net/userCreate'
+                      type: string
+                    userUpdate:
+                      id: 'https://jsonschema.net/userUpdate'
+                      type: string
+                  required:
+                    - houseHoldMembershipId
+                    - genericClientId
+                    - relationshipToHeadOfHousehold
+                    - dateCreate
+                    - dateUpdate
+                    - userCreate
+                    - userUpdate
+              required:
+                - householdMemberID
+            schema:
+              type: string
+        required: true
+    put:
+      deprecated: true    
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: 'members updated '
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: ' Unauthorized'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: Resource not found
+      operationId: PUT`_dep_generic-households-generic_household_id-members
+      requestBody:
+        content:
+          application/json:
+            example:
+              - houseHoldMembershipId: 1sdf-sad2-daf23
+                genericClientId: asdf-sad2-daf23
+                relationshipToHeadOfHousehold: 1
+                dateCreate: 2016-06-06
+                dateUpdate: 2016-06-06
+                userCreate: asd-adf-dsf7
+                userUpdate: asdf-as6-asdf-aas
+                genericlHouseHoldId: sadf-adf-adf
+              - houseHoldMembershipId: 2sdf-sad2-daf23
+                genericClientId: asdf-sad2-daf23
+                relationshipToHeadOfHousehold: 2
+                dateCreate: 2016-06-06
+                dateUpdate: 2016-06-06
+                userCreate: asd-adf-dsf7
+                userUpdate: asdf-as6-asdf-aas
+                genericlHouseHoldId: sadf-adf-adf
+            schema:
+              $ref: '#/components/schemas/household_members_ids'
+        required: true
+    parameters:
+      - name: generichouseholdid
+        in: path
+        required: true
+        schema:
+          type: string
+  '/generic-households/{generichouseholdid}/members/{memberid}':
+    get:
+      deprecated: true    
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  genericClientId: asdf-sad2-daf23
+                  relationshipToHeadOfHousehold: 1
+                  dateCreate: 2016-06-06
+                  dateUpdate: 2016-06-06
+                  userCreate: asd-adf-dsf7
+                  userUpdate: asdf-as6-asdf-aas
+                  genericlHouseHoldId: sadf-adf-adf
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: ' Unauthorized'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: Resource not found
+      description: get the member record based on member_id.
+    put:
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: member successfully updated.
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: ' Unauthorized'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: Resource not found
+      description: update the member record.
+      operationId: PUT_dep_generic-households-generic_household_id-members-member_id
+      requestBody:
+        content:
+          application/json:
+            example:
+              genericClientId: asdf-sad2-daf23
+              relationshipToHeadOfHousehold: 1
+              dateCreate: 2016-06-06
+              dateUpdate: 2016-06-06
+              userCreate: asd-adf-dsf7
+              userUpdate: asdf-as6-asdf-aas
+              genericlHouseHoldId: sadf-adf-adf
+            schema:
+              $ref: '#/components/schemas/household_members_id'
+        required: true
+    delete:
+      deprecated: true    
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: member deleted successfully.
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: ' Unauthorized'
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                example:
+                  message: Resource not found
+      description: delete the household member.
+      operationId: DELETE_generic-households-generic_household_id-members-member_id
+    parameters:
+      - name: memberid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: generichouseholdid
+        in: path
+        required: true
+        schema:
+          type: string          
   /members:
     get:
       responses:
