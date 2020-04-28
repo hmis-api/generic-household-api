@@ -1,12 +1,12 @@
 openapi: 3.0.0
 info:
   title: Generic Household
-  version: 3.1.3
+  version: 3.1.4
   description: |
        **Note :**
               Please note that the partial updates are supported via PUT APIs. However, Note that If "null" value is passed for any element, in the PUT request body, it will be ignored. An empty string value should be sent (instead of "null" value) for the elements that need to be updated with NULL values.
 servers:
-  - url: 'https://api.hslynk.com/global-household-api/rest'
+  - url: 'https://api.hslynk.com/generic-household-api/rest'
 paths:
   /generichouseholds:
     get:
@@ -150,19 +150,32 @@ paths:
           content:
             application/json:
               schema:
-                example:
-                  - genericlHouseHoldId: asdf-asdf-assdfasfd-df
-                    headOfHouseholdId: asdf-asdf-assdfasfd-dd
-                    dateCreated: 2016-06-06
-                    dateUpdated: 2016-06-06
-                    userCreate: asdf-adf-asdsf
-                    userUpdate: asdf-adfasf-asdfasds
-                  - genericlHouseHoldId: asdf-asdf-assdfasfd-da
-                    headOfHouseholdId: asdf-asdf-assdfasfd-dd-sadf
-                    dateCreated: 2016-06-06
-                    dateUpdated: 2016-06-06
-                    userCreate: asdf-adf-asdsf
-                    userUpdate: asdf-adfasf-asdfasds
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          headOfHouseholdId:
+                            type: string
+                            format: uuid
+                          dateCreated:
+                            type: string
+                          dateUpdated:
+                            type: string
+                          userId:
+                            type: string
+                          dedupClientId:
+                            type: string
+                            format: uuid
+                          genericHouseholdId:
+                            type: string
+                            format: uuid
+              example:
+                  - headOfHouseholdId: 78f5bcf4-ddf6-4d54-a981-ce2dbbbe0827
+                    dateCreated: 2020-04-28 13:56
+                    dateUpdated: 2020-04-28 13:56
+                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                    dedupClientId: 167f24a0-8958-11ea-b546-02fe61f7863e
+                    genericHouseholdId: 9e7b1ae5-1115-4859-b781-edd3291371cf
         '401':
           description: ''
           content:
@@ -183,10 +196,27 @@ paths:
         content:
           application/json:
             example:
-              - headOfHouseholdId: asdf-asdf-assdfasfd-dd
-              - headOfHouseholdId: asdf-asdf-assdfasfd-dd-sadf
+                    genericHouseholds:
+                        - headOfHouseholdId: "4eb6e34a-4c33-4678-8c28-786222c6176d"
+        
             schema:
-              $ref: '#/components/schemas/generic_households'
+                {
+                    "type": "object",
+                    "properties": {
+                        "genericHouseholds": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "headOfHouseholdId": {
+                                        "type": "string",
+                                         "format": "uuid",
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
         required: true
     put:
       responses:
@@ -413,47 +443,20 @@ paths:
       requestBody:
         content:
           application/json:
-            example:
-              $schema: 'https://json-schema.org/draft-04/schema#'
-              id: 'https://jsonschema.net'
-              type: array
-              items:
-                - id: householdMemberID
-                  type: object
-                  properties:
-                    houseHoldMembershipId:
-                      id: 'https://jsonschema.net/houseHoldMembershipId'
-                      type: string
-                    genericClientId:
-                      id: 'https://jsonschema.net/globalClientId'
-                      type: string
-                    relationshipToHeadOfHouseHold:
-                      id: 'https://jsonschema.net/relationshipToHeadOfHousehold'
-                      type: integer
-                    dateCreate:
-                      id: 'https://jsonschema.net/dateCreate'
-                      type: string
-                    dateUpdate:
-                      id: 'https://jsonschema.net/dateUpdate'
-                      type: string
-                    userCreate:
-                      id: 'https://jsonschema.net/userCreate'
-                      type: string
-                    userUpdate:
-                      id: 'https://jsonschema.net/userUpdate'
-                      type: string
-                  required:
-                    - houseHoldMembershipId
-                    - genericClientId
-                    - relationshipToHeadOfHousehold
-                    - dateCreate
-                    - dateUpdate
-                    - userCreate
-                    - userUpdate
-              required:
-                - householdMemberID
             schema:
-              type: string
+              example:
+                  - householdMembershipId: 2ab007d4-ac7e-4a75-beb2-a6b7160083b1
+                    dateCreated: 2020-04-28 13:56
+                    dateUpdated: 2020-04-28 13:56
+                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                    genericClientId: 19f02770-07cd-4a22-89ff-4debfa3172d2
+                    genericHouseholdId: 9e7b1ae5-1115-4859-b781-edd3291371cf
+                  - householdMembershipId: 2aa3e35e-843e-4162-b32d-8e344c57647e
+                    dateCreated: 2020-04-28 13:56
+                    dateUpdated: 2020-04-28 13:56
+                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                    genericClientId: 6e8dac43-2692-40ab-9a6e-325bf459e074
+                    genericHouseholdId: 9e7b1ae5-1115-4859-b781-edd3291371cf
         required: true
     put:
       responses:
@@ -743,7 +746,7 @@ paths:
                 example:
                   errorMessage: internal server error
       description: gets a set of generic households
-      operationId: GET_generic-households
+      operationId: GET_genericHouseholds
       parameters:
         - name: inactive
           in: query
@@ -900,7 +903,7 @@ paths:
                 example:
                   message: ' Internal Server Error - retry request'
       description: to delete generic household on the basis of uuid
-      operationId: DELETE_generic-households-generic_household_id
+      operationId: DELETE_genericHouseholds-generic_household_id
     put:
       deprecated: true
       responses:
@@ -948,7 +951,7 @@ paths:
           type: string
   '/generic-households/{generichouseholdid}/members':
     get:
-      deprecated: true    `
+      deprecated: true
       responses:
         '200':
           description: ''
@@ -1220,7 +1223,7 @@ paths:
                 example:
                   message: Resource not found
       description: delete the household member.
-      operationId: DELETE_generic-households-generic_household_id-members-member_id
+      operationId: DELETE_genericHouseholds-generic_household_id-members-member_id
     parameters:
       - name: memberid
         in: path
