@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Generic Household
-  version: 3.1.4
+  version: 3.1.5
   description: |
        **Note :**
               Please note that the partial updates are supported via PUT APIs. However, Note that If "null" value is passed for any element, in the PUT request body, it will be ignored. An empty string value should be sent (instead of "null" value) for the elements that need to be updated with NULL values.
@@ -423,8 +423,45 @@ paths:
           content:
             application/json:
               schema:
-                example:
-                  message: 'address is updated '
+                type: object
+                properties:
+                  members:
+                    type: array
+                    items:
+                      anyOf:
+                      - type: object
+                        properties:
+                          householdMembershipId:
+                            type: string
+                            format: uuid
+                          dateCreated:
+                            type: string
+                          dateUpdated:
+                            type: string
+                          userId:
+                            type: string
+                            format: uuid
+                          genericClientId:
+                            type: string
+                            format: uuid
+                          genericHouseholdId:
+                            type: string
+                            format: uuid
+              example: 
+                      members:
+                        - householdMembershipId: 2ab007d4-ac7e-4a75-beb2-a6b7160083b1
+                          dateCreated: 2020-04-28 13:56
+                          dateUpdated: 2020-04-28 13:56
+                          userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                          genericClientId: 19f02770-07cd-4a22-89ff-4debfa3172d2
+                          genericHouseholdId: 9e7b1ae5-1115-4859-b781-edd3291371cf
+                        - householdMembershipId: 2aa3e35e-843e-4162-b32d-8e344c57647e
+                          dateCreated: 2020-04-28 13:56
+                          dateUpdated: 2020-04-28 13:56
+                          userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
+                          genericClientId: 6e8dac43-2692-40ab-9a6e-325bf459e074
+                          genericHouseholdId: 9e7b1ae5-1115-4859-b781-edd3291371cf
+                
         '401':
           description: ''
           content:
@@ -444,19 +481,31 @@ paths:
         content:
           application/json:
             schema:
-              example:
-                  - householdMembershipId: 2ab007d4-ac7e-4a75-beb2-a6b7160083b1
-                    dateCreated: 2020-04-28 13:56
-                    dateUpdated: 2020-04-28 13:56
-                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
-                    genericClientId: 19f02770-07cd-4a22-89ff-4debfa3172d2
-                    genericHouseholdId: 9e7b1ae5-1115-4859-b781-edd3291371cf
-                  - householdMembershipId: 2aa3e35e-843e-4162-b32d-8e344c57647e
-                    dateCreated: 2020-04-28 13:56
-                    dateUpdated: 2020-04-28 13:56
-                    userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
-                    genericClientId: 6e8dac43-2692-40ab-9a6e-325bf459e074
-                    genericHouseholdId: 9e7b1ae5-1115-4859-b781-edd3291371cf
+                  type: object
+                  properties:
+                    members:
+                      type: array
+                      items:
+                        anyOf:
+                        - type: object
+                          properties:
+                            genericClientId:
+                              type: string
+                              format: uuid
+                            genericHouseholdId:
+                              type: string                    
+                              format: uuid
+                            relationshipToHeadOfHousehold:
+                              type: string
+                              format: uuid
+            example:
+                members:
+                - genericClientId: 19f02770-07cd-4a22-89ff-4debfa3172d2
+                  genericHouseholdId: 9e7b1ae5-1115-4859-b781-edd3291371cf
+                  relationshipToHeadOfHousehold: father
+                - relationshipToHeadOfHousehold: son       
+                  genericClientId: 6e8dac43-2692-40ab-9a6e-325bf459e074
+                  genericHouseholdId: 9e7b1ae5-1115-4859-b781-edd3291371cf
         required: true
     put:
       responses:
@@ -465,8 +514,7 @@ paths:
           content:
             application/json:
               schema:
-                example:
-                  message: 'members updated '
+                example: |
         '401':
           description: ''
           content:
@@ -485,23 +533,39 @@ paths:
       requestBody:
         content:
           application/json:
+            schema:
+                    type: object
+                    properties:
+                      members:
+                        type: array
+                        items:
+                          anyOf:
+                          - type: object
+                            properties:
+                              householdMembershipId:
+                                type: string
+                                format: uuid
+                              dateCreated:
+                                type: string
+                              dateUpdated:
+                                type: string
+                              userId:
+                                type: string
+                                format: uuid
+                              genericClientId:
+                                type: string
+                                format: uuid
+                              genericHouseholdId:
+                                type: string
+                                format: uuid
             example:
-              - houseHoldMembershipId: 1sdf-sad2-daf23
-                genericClientId: asdf-sad2-daf23
-                relationshipToHeadOfHousehold: 1
-                dateCreate: 2016-06-06
-                dateUpdate: 2016-06-06
-                userCreate: asd-adf-dsf7
-                userUpdate: asdf-as6-asdf-aas
-                genericlHouseHoldId: sadf-adf-adf
-              - houseHoldMembershipId: 2sdf-sad2-daf23
-                genericClientId: asdf-sad2-daf23
-                relationshipToHeadOfHousehold: 2
-                dateCreate: 2016-06-06
-                dateUpdate: 2016-06-06
-                userCreate: asd-adf-dsf7
-                userUpdate: asdf-as6-asdf-aas
-                genericlHouseHoldId: sadf-adf-adf
+                      members:
+                        - householdMembershipId: 2ab007d4-ac7e-4a75-beb2-a6b7160083b1
+                          genericClientId: 19f02770-07cd-4a22-89ff-4debfa3172d2
+                          genericHouseholdId: 9e7b1ae5-1115-4859-b781-edd3291371cf
+                        - householdMembershipId: 2aa3e35e-843e-4162-b32d-8e344c57647e
+                          genericClientId: 6e8dac43-2692-40ab-9a6e-325bf459e074
+                          genericHouseholdId: 9e7b1ae5-1115-4859-b781-edd3291371cf
             schema:
               $ref: '#/components/schemas/household_members_ids'
         required: true
