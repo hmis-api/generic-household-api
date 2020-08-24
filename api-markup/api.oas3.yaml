@@ -198,7 +198,7 @@ paths:
             example:
                     genericHouseholds:
                         - headOfHouseholdId: "4eb6e34a-4c33-4678-8c28-786222c6176d"
-        
+
             schema:
                 {
                     "type": "object",
@@ -447,7 +447,7 @@ paths:
                           genericHouseholdId:
                             type: string
                             format: uuid
-              example: 
+              example:
                       members:
                         - householdMembershipId: 2ab007d4-ac7e-4a75-beb2-a6b7160083b1
                           dateCreated: 2020-04-28 13:56
@@ -461,7 +461,7 @@ paths:
                           userId: 8b6c6ef2-87c7-47f0-8874-4cca6f09365c
                           genericClientId: 6e8dac43-2692-40ab-9a6e-325bf459e074
                           genericHouseholdId: 9e7b1ae5-1115-4859-b781-edd3291371cf
-                
+
         '401':
           description: ''
           content:
@@ -493,7 +493,7 @@ paths:
                               type: string
                               format: uuid
                             genericHouseholdId:
-                              type: string                    
+                              type: string
                               format: uuid
                             relationshipToHeadOfHousehold:
                               type: string
@@ -503,7 +503,7 @@ paths:
                 - genericClientId: 19f02770-07cd-4a22-89ff-4debfa3172d2
                   genericHouseholdId: 9e7b1ae5-1115-4859-b781-edd3291371cf
                   relationshipToHeadOfHousehold: father
-                - relationshipToHeadOfHousehold: son       
+                - relationshipToHeadOfHousehold: son
                   genericClientId: 6e8dac43-2692-40ab-9a6e-325bf459e074
                   genericHouseholdId: 9e7b1ae5-1115-4859-b781-edd3291371cf
         required: true
@@ -566,8 +566,6 @@ paths:
                         - householdMembershipId: 2aa3e35e-843e-4162-b32d-8e344c57647e
                           genericClientId: 6e8dac43-2692-40ab-9a6e-325bf459e074
                           genericHouseholdId: 9e7b1ae5-1115-4859-b781-edd3291371cf
-            schema:
-              $ref: '#/components/schemas/household_members_ids'
         required: true
     parameters:
       - name: generichouseholdid
